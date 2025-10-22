@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<script src="js.js" type="text/javascript" charset="utf-8">
+
+</script>
+<link rel="stylesheet" href="css.css" title="" type="" />
+</head>
+<body>
+<h1>Mot de Passe InterActif</h1>
+<form action="#" method="get" accept-charset="utf-8">
+<label for="mdp">PassWord:</label><br />
+<input type="password" name="mdp" id="mdp" placeholder="Input Password" autofocus="autofocus" />
+<p><span class="cond cond-1"></span> Doit contenir des lettres,des chiffres et des caracteres </p>
+<p><span class="cond cond-1"></span> Pas d'espace ou certains caracteres spéciaux</p>
+<p><span class="cond cond-1"></span> Doit commencer par une lettre en majuscule</p>
+<p><span class="cond cond-1"></span> Doit avoir au moins 8 caracteres</p>
+
+<button type="submit">Submit</button>
+</form>
+<script>
+//console.log(charsAut);
+let conditons = document.querySelectorAll(".cond");
+let MDP = document.getElementById("mdp");
+
+MDP.addEventListener('input', ()=>{
+    let valMdp = MDP.value;
+    
+//Doit commencer par une lettre en majuscule
+
+    if(/^[A-Z]$/.test(valMdp[0])){
+    conditons[2].textContent = '✓'
+        conditons[2].style = "background-color:blue"
+    }else{
+        conditons[2].textContent = '×'
+        conditons[2].style = "background-color:red"
+    }
+//Pas d'espace ou certains caracteres spéciaux
+for(var i=0;i<valMdp.length;i++){
+    if(charsAut.includes(valMdp[i]) && valMdp !== ''){
+        conditons[1].textContent ="✓";
+        conditons[1].style = "background-color:blue"
+    }else{
+        conditons[1].textContent ="×";
+        conditons[1].style = "background-color:red";
+        break;
+    }
+}
+
+// Doit Avoir au moins 8 caracteres
+if(valMdp.length >=8){
+    conditons[3].textContent ="✓";
+        conditons[3].style = "background-color:blue"
+}else{
+    conditons[3].textContent ="×";
+        conditons[3].style = "background-color:red"
+}
+//Doit contenir des lettres,des chiffres et des caracteres;
+if(!/^\w+$/.test(valMdp)){
+    if(!/^\W+$/.test(valMdp)){
+      conditons[0].textContent ="✓";
+        conditons[0].style = "background-color:blue"  
+    }
+    
+}else{
+    conditons[0].textContent ="×";
+        conditons[0].style = "background-color:red"
+}
+})
+
+</script>
+</body>
+</html>

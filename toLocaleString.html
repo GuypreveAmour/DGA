@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Date et Heure</title>
+  <style type="text/css" media="all">
+
+  </style>
+</head>
+<body>
+  <h1>Date et Heure Actuelles</h1>
+  <p id="datetime"></p>
+
+  <script>
+    function afficherDateHeure() {
+      const maintenant = new Date().toLocaleString();
+     //const dateHeure = maintenant.toLocaleString();
+document.getElementById("datetime").textContent = maintenant //dateHeure;
+    }
+
+    setInterval(afficherDateHeure, 1000);
+    afficherDateHeure();
+  </script>
+</body>
+</html>

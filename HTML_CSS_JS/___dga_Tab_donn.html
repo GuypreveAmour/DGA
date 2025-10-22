@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>table de marchandises</title>
+<style type="text/css" media="all">
+input{
+      width: 50px;
+      border: none;
+      text-align: center;
+      font-weight: 600;
+      font-family: Times New Roman;
+      font-size: 17px;
+     } 
+td{
+     border: solid 1px black;
+     text-align: center;
+  }
+th{
+     border: solid 1px black;
+     text-align: center;
+  }
+thead{
+    border: solid 1px black;
+    text-align: center;
+}
+table{
+    border: solid 2px black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+    font-size: 15px;
+}
+button{
+    border: solid 3px blue;
+    background-color: gray;
+    color: white;
+    font-weight: 1000;
+    position: absolute;
+    top: 200px;
+    right: 10px;
+    font-size: 25px;
+    font-family: Times New Roman;
+    border-radius: 10px;
+}
+button:hover{
+    color: blue;
+}
+.titre{
+    background-color: yellow;
+}
+.pain{
+    color: darkkhaki;
+}
+.tomate{
+    color: red;
+}
+.avocat{
+    color: green;
+}
+.mangue{
+    color: orange;
+}
+body{
+    font-family: Times New Roman;
+}
+</style>
+        
+    </head>
+    <body>
+        <table class="tab" id="tab" border="1px">
+            <thead>
+                <th colspan="5" class="titre">Alimentations et Divers</th>
+                
+            </thead>
+            <thead>
+                <th>Produits</th>
+                <th class="pain">Pain</th>
+                <th class="tomate">Tomate</th>
+                <th class="avocat">Avocat</th>
+                <th class="mangue">Mangue</th>
+            </thead>
+            <tr>
+                <th>Prix (en Fcfa)</th>
+                <td id="100">100</td>
+                <td id="500">500</td>
+                <td id="300">300</td>
+                <td id="200">200</td>
+            </tr>
+            <tr>
+                <th>Quantité</th>
+                <td><input type="number" id="pain"/></td>
+                <td><input type="number" id="tomate"/></td>
+                <td><input type="number" id="avocat"/></td>
+                <td><input type="number" id="mangue"/></td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td id="tpain"></td>
+                <td id="ttomate"></td>
+                <td id="tavocat"></td>
+                <td id="tmangue"></td>
+            </tr>
+            <tr>
+                <th>Somme(Total)</th>
+                <td colspan="4" id="SM"></td>
+            </tr>
+            <button onclick="SommeT()">somme</button>
+            <script type="text/javascript" charset="utf-8">
+function SommeT(){
+                /*Pour les pain */
+        
+                let prixp=parseFloat(document.getElementById("100").id);
+                let nombp=document.getElementById("pain").value;
+                let totalp=prixp*nombp;
+               let afftp=document.getElementById("tpain");
+               afftp.textContent=`${totalp}`
+                
+            /*Pour les tomates */
+        
+                let prixt=parseFloat(document.getElementById("500").id);
+                let nombt=document.getElementById("tomate").value;
+                let totalt=prixt*nombt;
+               let afftt=document.getElementById("ttomate");
+               afftt.textContent=`${totalt}`
+                
+                /*Pour les avocats */
+        
+                let prixa=parseFloat(document.getElementById("300").id);
+                let nomba=document.getElementById("avocat").value;
+                let totala=prixa*nomba;
+               let affta=document.getElementById("tavocat");
+               affta.textContent=`${totala}`
+                
+                /*Pour les mangues */
+        
+                let prixm=parseFloat(document.getElementById("200").id);
+                let nombm=document.getElementById("mangue").value;
+                let totalm=prixm*nombm;
+               let afftm=document.getElementById("tmangue");
+               afftm.textContent=`${totalm}`
+                
+                const SM=document.getElementById("SM");
+               let SommeTotal=totalm+totala+totalp+totalt;
+               SM.textContent=`${SommeTotal}`
+                }
+                
+            </script>
+            
+        </table>
+    </body>
+</html>

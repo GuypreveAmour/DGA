@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>montre avec js </title>
+<style type="text/css" media="all">
+    * {
+        font-family: Times New Roman;
+    }
+    body {
+        justify-items: center;
+        align-content: center;
+        align-items: center;
+    }
+    .display {
+        border: 2px solid #000;
+        border-radius: 20px;
+        font-size: 35px;
+        font-weight: bold;
+        color: #000;
+        padding: 10px;
+        height: 76%;
+        text-align: center;
+        align-content: center;
+        background-color: #000;
+
+    }
+    .display:hover {
+        animation: voir 10s linear normal ;
+    }
+    @keyframes voir {
+        0% {
+            color: #000;
+        }
+        10% {
+            color: red;
+        }
+        60% {
+            color: red;
+        }
+        70% {
+            color: red;
+        }
+        75% {
+            color: red;
+        }
+        80%,81%,82%,83%,84%,85%,86%,87%,88%,89% {
+            color: red;
+        }
+        90% {
+            color: darkred;
+        }
+        100% {
+            color: darkred;
+        }
+    }
+    .container {
+        border-radius: 20px;
+        width: 50%;
+        height: 100px;
+        border: 5px solid;
+        padding: 10px;
+        background-color: silver;
+        box-shadow: 0px 0px 5px rgba(0,0,0,1);
+    }
+    .bras {
+        border: solid 1px;
+        width: 80%;
+        height: 50px;
+        text-align: center;
+        align-content: center;
+        font-size: 40px;
+        font-weight: bold;
+        box-shadow: 0px 6px 10px;
+        text-shadow: 0px 0px 3px;
+    }
+    .bras_bas {
+        width: 40%;
+        justify-items: center;
+    }
+    .bas5 {
+        border-radius: 0 0 40px 40px;
+    }
+    .bras_haut {
+        width: 40%;
+        justify-items: center;
+    }
+    .haut1 {
+        border-radius: 20px 20px 5px 5px;
+        border: 10px solid #000;
+    }
+    .boule {
+        background-color: silver;
+        width: 10px;
+        height: 50px;
+        border-radius: 50px;
+        position: relative;
+        top: 100px;
+    }
+    .bouton {
+        background-color: #000;
+        width: 10px;
+        height: 30px;
+        border: 1px solid white;
+        border-left: 1px solid #000;
+        border-radius: 0px 5px 5px 0px;
+        position: relative;
+        top: 355px;
+        left: 103px;
+        z-index: 90;
+    }
+    .bouton:hover {
+        animation: push 0.3s linear normal;
+    }
+
+    @keyframes push {
+        0%,100% {}
+        50% {
+            width: 5px;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="boule">
+
+</div>
+<div class="bouton">
+
+</div>
+<div class="bras_haut">
+<div class="bras haut1">
+
+</div>
+<div class="bras haut2">
+
+</div>
+<div class="bras haut3">
+
+</div>
+<div class="bras haut4">
+
+</div>
+<div class="bras haut5">
+
+</div>
+</div>
+
+<div class="container" id="container">
+<div class="display" id="display">
+
+</div>
+</div>
+<div class="bras_bas">
+<div class="bras bas1">
+°
+</div>
+<div class="bras bas2">
+°
+</div>
+<div class="bras bas3">
+°
+</div>
+<div class="bras bas4">
+°
+</div>
+<div class="bras bas5">
+°
+</div>
+</div>
+
+
+
+<script type="text/javascript" charset="utf-8">
+function Time() {
+let now = new Date().toLocaleTimeString();
+document.getElementById("display").textContent = now
+}
+setInterval(Time, 1000)
+Time()
+</script>
+</body>
+</html>

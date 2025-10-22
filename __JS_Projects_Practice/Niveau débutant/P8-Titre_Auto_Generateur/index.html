@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Generateur de titre automatiquement: Transforme la premiere lettre de chaque mot en majuscule </title>
+<style type="text/css" media="all">
+h1{
+    text-align: center;
+    text-decoration: underline 2px dotted;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-block: 20px;
+    background-color: #5678ef;
+    color: aliceblue;
+    box-shadow: 0px 5px 5px 2px #888;
+}
+body{
+    margin: 0;
+}
+button,textarea,p,label,small{
+    margin-inline: 20px;
+}
+button{
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 200;
+    border-radius: 7px;
+    box-shadow: inset 0px 0px 10px #000;
+}
+small{
+    color: #911;
+    font-weight: 300;
+}
+label{
+    font-family: Times New Roman;
+}
+p{
+    font-size: 26px;
+    font-weight: 200;
+}
+span{
+    color: darkblue;
+}
+button:active{
+    border: 1px solid #f9f;
+    color: #f6e;
+    box-shadow: inset 0px 0px 10px #000;
+}
+</style>
+</head>
+<body>
+<h1>Title Generator</h1>
+<label for="phrase">Tapez La Phrase Ici : </label><br />
+<textarea name="phrase" id="phrase" rows="8" cols="30"></textarea><br />
+<i> <small>* This program transform all first sentence's letters to UpperCase </small> </i>
+
+<br /><br />
+<button onclick="generate()">Generate</button>
+<p>Result: <span id="Result"></span></p>
+<script type="text/javascript" charset="utf-8">
+    function generate(){
+let phrase = document.getElementById("phrase").value;
+let phrase_coup = phrase.split(' ');
+console.log(phrase_coup);
+let phrase_fin =[];
+let sortie;
+phrase_coup.forEach(el =>{
+    let el_regp =[], el_regp_fin=[];
+    for(var i=0;i<el.length;i++){
+        el_regp.push(el[i]);
+        el_regp[0] = el[0].toUpperCase();
+        
+    }console.log(el_regp);
+    el_regp_fin = el_regp.join('');
+    console.log(el_regp_fin);
+ phrase_fin.push(el_regp_fin);   
+})
+console.log(phrase_fin);
+sortie = phrase_fin.join(' ');
+console.log(sortie);
+document.getElementById("Result").textContent = sortie;
+}
+</script>
+</body>
+</html>

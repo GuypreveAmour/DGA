@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: steelblue;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      padding: 20px;
+    }
+
+    .box {
+      flex: 1;
+      padding: 20px;
+      background: lightgray;
+      margin: 10px;
+    }
+
+    /* Responsive : pour écrans < 600px */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .box {
+        background: lightpink;
+      }
+
+      header {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Ma page responsive</h1>
+  </header>
+
+  <div class="container">
+    <div class="box">Bloc 1</div>
+    <div class="box">Bloc 2</div>
+  </div>
+
+</body>
+</html>

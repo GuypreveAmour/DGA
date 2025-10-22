@@ -1,0 +1,34 @@
+<style>
+.mega-box {
+  width: 100px;
+  height: 100px;
+  background: tomato;
+  animation: mega 4s infinite;
+  margin: 30px;
+}
+
+@keyframes mega {
+  0% {
+    transform: rotate(0) scale(1);
+    background: tomato;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.2);
+    background: gold;
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+    background: limegreen;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.5);
+    background: dodgerblue;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    background: tomato;
+  }
+}
+</style>
+
+<div class="mega-box"></div>

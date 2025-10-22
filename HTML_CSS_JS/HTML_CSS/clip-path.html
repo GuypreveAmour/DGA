@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css" media="all">
+
+/* =====Syntax de base===== */
+    .element {
+        clip-path: shape;
+    }
+body{
+    justify-items: center;
+    font-size: 10pt;
+    color: #fff;
+}
+    .triangle {
+    width: 100px;
+    height: 100px;
+    border: 1px solid #000;
+    background-color: #09f;
+    clip-path: polygon(0% 0%,0% 100%,100% 100%);
+    font-size: 10pt;
+    color: #fff;
+    text-align: center;
+    align-content: end;
+    padding: 10px;
+}
+.circle {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background-color: red;
+    clip-path: circle(50% at 50% 50%);
+    text-align: center;
+    align-content: center;
+}
+.ellipse {
+    width: 150px;
+    height: 100px;
+    background-color: orange;
+    clip-path: ellipse(75px 50px at 50% 50%);
+    margin: 20px;
+    text-align: center;
+    align-content: center;
+}
+.rect {
+    width: 150px;
+    height: 100px;
+    background-color: green;
+    clip-path: inset(10px 20px 10px 20px round 15px);
+     text-align: center;
+    align-content: center;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    clip-path: circle(10% at 50% 50%);
+    transition: clip-path 0.5s;
+}
+
+.box:hover {
+    clip-path: circle(50% at 50% 50%);
+}
+</style>
+</head>
+<body>
+<div class="element">
+</div>
+<div class="triangle">
+  Triangle CSS  
+</div>
+<div class="circle">
+    Cercle CSS
+</div>
+<div class="ellipse">
+ Ellipse CSS   
+</div>
+<div class="rect">
+  Rectangle CSS  
+</div>
+<div class="box">
+    
+</div>
+</body>
+</html>

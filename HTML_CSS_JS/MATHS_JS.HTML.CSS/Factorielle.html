@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title> Fonction factorielle avec JavaScript </title>
+<style type="text/css" media="all">
+
+</style>
+</head>
+<body>
+<h1>Fonction Factorielle</h1>
+<label for="n">n:</label>
+<input type="number" id="n" placeholder="Valeur de n" />
+<button onclick="calculer()">Calculer</button><br />
+<p id="resultat"></p>
+<script type="text/javascript" charset="utf-8">
+function calculer(){
+    let n = document.getElementById("n").value;
+    let fact = 1;
+    for(var i=1;i<=n;i++){
+        fact*=i; 
+    }
+let resultat = document.getElementById("resultat");
+resultat.textContent = fact;
+}
+</script>
+</body>
+</html>

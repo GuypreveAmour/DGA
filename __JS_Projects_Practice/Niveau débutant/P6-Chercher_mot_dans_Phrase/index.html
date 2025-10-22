@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Chercher un mot dans une phrase.</title>
+<style type="text/css" media="all">
+
+</style>
+</head>
+<body>
+<h1>Rechercher Un Mot</h1>
+<label for="phrase">E'trez La Phrase :</label>
+<textarea name="Phrase" id="Phrase" rows="8" cols="30"></textarea>
+<br /><br />
+<label for="mot">Mot A Chercher:</label>
+<input type="text" id="mot" placeholder="Tapez le mot de la Recherche" />
+<button onclick="Rechercher()">Chercher</button><br /><br />
+<p>
+Resultat: <span id="Resultat"></span>
+</p>
+<script type="text/javascript" charset="utf-8">
+function Rechercher(){
+    let Phrase = document.getElementById("Phrase").value,
+    mot = document.getElementById("mot").value,
+phrase_min = Phrase.toLowerCase(),
+mot_min = mot.toLowerCase();
+if(phrase_min.includes(mot_min)){
+    document.getElementById("Resultat").textContent = `${mot} est bel et bien dans la Phrase ci-dessus !`
+}else{
+    document.getElementById("Resultat").textContent = `${mot} n'est pas dans la Phrase ci-dessus !`
+}
+}
+</script>
+</body>
+</html>

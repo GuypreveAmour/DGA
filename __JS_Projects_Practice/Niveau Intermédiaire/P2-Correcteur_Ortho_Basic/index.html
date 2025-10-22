@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Correcteur Orthographiqur Basic</title>
+<style type="text/css" media="all">
+    .corrections {
+        display: flex;
+        justify-content: center;
+    }
+    .correction {
+        background-color: beige;
+        padding: 10px;
+        max-width: calc(100%/3);
+        overflow: scroll;
+    }
+</style>
+<script src="js.js" type="text/javascript" charset="utf-8">
+</script>
+</head>
+<body>
+<h1>Correcteur Orthographique</h1>
+<textarea name="msg" id="msg" rows="1" cols="30" placeholder="Ecrire un message"></textarea>
+<br /><br />
+
+<div class="corrections">
+<div class="correction cor1">
+
+</div>
+<div class="correction cor2">
+
+</div>
+<div class="correction cor3">
+
+</div>
+
+</div>
+<!--
+<button onclick="separ()">separ</button>
+-->
+<script type="text/javascript" charset="utf-8">
+
+let mots = document.getElementById("msg");
+
+let tabCorriges = [];
+let cor1 = document.querySelector(".cor1"),
+cor2 = document.querySelector(".cor2"),
+cor3 = document.querySelector(".cor3");
+
+
+mots.addEventListener('input', ()=> {
+let tabInput = mots.value.split(' ');
+
+    listMots.forEach(mot => {
+tabInput.forEach(mts => {
+ 
+if (mot.toLowerCase().includes(mts.toLowerCase()) && mts.toLowerCase().startsWith(mot[0].toLowerCase())) {
+    
+ if(mts !=''){
+        tabCorriges.push(mot);
+    }else{
+        //cor1.textContent = '';
+        //cor2.textContent = '';
+        //cor3.textContent = '';
+        
+    };
+} else {
+        //cor1.textContent = '';
+        //cor2.textContent = '';
+        //cor3.textContent = '';
+    
+};
+});
+});
+cor1.textContent = tabCorriges[Math.floor(Math.random()*tabCorriges.length)];
+cor2.textContent = tabCorriges[Math.floor(Math.random()*tabCorriges.length)];
+cor3.textContent = tabCorriges[Math.floor(Math.random()*tabCorriges.length)];
+if ((cor2.textContent == cor1.textContent || cor2.textContent == cor3.textContent) || (cor2.textContent == cor1.textContent && cor2.textContent == cor3.textContent)) {
+cor2.textContent = tabCorriges[Math.floor(Math.random()*tabCorriges.length)];
+};
+if (cor3.textContent == cor1.textContent || cor3.textContent == cor2.textContent) {
+cor3.textContent = tabCorriges[Math.floor(Math.random()*tabCorriges.length)];
+};
+
+      
+});
+console.log(tabCorriges);
+
+/* 
+cor1.addEventListener('click', ()=>{
+    if(mots.length <=6){
+      mots.value=cor1.textContent;   
+    }else{
+        mots.value+=" " + cor1.textContent; 
+    }
+   
+});
+cor2.addEventListener('click', ()=>{
+   mots.value=cor2.textContent; 
+});
+cor3.addEventListener('click', ()=>{
+   mots.value=cor3.textContent; 
+});
+
+*/
+
+/*
+function separ(){
+    let tab = mots.value.split(' ');
+    console.log(tab);
+}
+ msg.addEventListener('focus',()=>{
+        msg.rows = 10;
+    });
+console.log('Mots :',listMots.length)
+*/
+</script>
+</body>
+</html>

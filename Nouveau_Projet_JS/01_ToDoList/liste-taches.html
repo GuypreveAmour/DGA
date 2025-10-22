@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Une liste de taches</title>
+<style type="text/css" media="all">
+*{
+    font-family: Times New Roman;
+}
+h1{
+    text-align: center;
+    text-decoration: underline;
+}
+#Listes{
+    font-size: 20px;
+    color: blue;
+    float: right;
+}
+span+button{
+    color: #fff;
+    border: 1px solid ;
+    border-radius: 5px;
+    background-color: red;
+    padding:5px 10px;
+    margin: 10px 20px;
+}
+</style>
+</head>
+<body>
+<h1>Liste Des Taches</h1>
+<label for="tache">Entrez une Tache:</label>
+<input type="text" name="tache" id="tache" placeholder="ajouter unr tache" />
+<button onclick="ajouter_tache()">Ajouter</button>
+<div id="listes">
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+function ajouter_tache() {
+let taches = document.getElementById("tache").value;
+let tache = document.createElement("span");
+tache.innerHTML = ` <br> • <input type="checkbox"/>${taches} `;
+document.getElementById("listes").appendChild(tache);
+let btnSupp = document.createElement("button");
+btnSupp.innerHTML = `Supprimer`;
+document.getElementById("listes").appendChild(btnSupp);
+btnSupp.addEventListener('click', ()=>{
+    tache.innerHTML =''
+    btnSupp.innerHTML='';
+    btnSupp.style = 'border:none; background-color:#fff'
+})
+
+
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Factorisation d'un trinome</title>
+        <style type="text/css" media="all">
+          body{
+              font-family: Times New Roman;
+          }  
+          input{
+              border: solid 2px brown;
+              border-radius: 3px;
+              font-family: Times New Roman;
+              font-size:20px ;
+              padding: 0 20px 0 20px;
+              width: 50%;
+          }
+          label{
+              font-size: 20px;
+          }
+          h2{
+              text-align: center;
+              text-decoration: underline;
+          }
+          button{
+             
+             text-align: center;
+             border: solid 2px blue;
+              border-radius: 3px;
+              font-family: Times New Roman;
+              font-size:20px ;
+              width: 35%;
+          }
+        </style>
+    </head>
+    <body>
+        <label for="a">a :</label>
+        <input type="number" id="a" placeholder="valeur de a" />
+        <br>        <br>
+                <label for="b">b :</label>
+         <input type="number" id="b" placeholder="valeur de b" />
+                 <br>        <br>
+                 <label for="c">c :</label>
+       <input type="number" id="c" placeholder="valeur de c" />
+               <br>        <br>
+ <button onclick="factoriser()">Factoriser</button>
+ 
+ <p id="racond"></p>
+ <h2 class="h2">Forme Factorisée :</h2>
+ <p id="Ffacto"></p>
+ 
+        
+       <script type="text/javascript" charset="utf-8">
+        function factoriser() {
+          let a =parseFloat(document.getElementById("a").value);
+         let b =parseFloat(document.getElementById("b").value);
+          let c =parseFloat(document.getElementById("c").value);
+          
+         const delta = (b*b) -4*(a*c);
+         let x1 ,x2 ,x0;
+         const racond=document.getElementById("racond");
+         const Ffacto =document.getElementById("Ffacto");
+         if(a==0){
+             racond.textContent=`Ceci n'est pas un trinome du second degre car (a=0), " a " doit être non nul !`;
+             Ffacto.textContent=``;
+         }else{
+         
+         if(delta<0){
+             racond.textContent=`Delta = ${delta} < 0, alors le polynome n'as pas de racines et donc n'est pas factorisable !`;
+             Ffacto.textContent=``
+         }else if(delta==0){
+             x0=(-b)/(2*a);
+             racond.textContent=`Delta = ${delta}, le discriminant est nul alors le polynome admet une racine double notée x0 telle que x0 = ${x0}`;
+             if(a==1 && x0<0){
+Ffacto.textContent=`F(x) =(x + ${Math.abs(x0)})(x + ${Math.abs(x0)})`;
+                 
+}else if(a!=1 && x0==0){
+Ffacto.textContent=`F(x) = ${a}(x)(x)`; 
+             }else if(a==1 && x0>0){
+ Ffacto.textContent=`F(x) =(x - ${Math.abs(x0)})(x - ${Math.abs(x0)})`;                
+             }else if(a==1 && x0==0){
+ Ffacto.textContent=`F(x) =(x)(x)`;                
+             }else if(a!=1 && x0>0){
+ Ffacto.textContent=`F(x) =${a}(x - ${Math.abs(x0)})(x - ${Math.abs(x0)})`;                
+             }else if(a!=1 && x0<0){
+ Ffacto.textContent=`F(x) =${a}(x + ${Math.abs(x0)})(x + ${Math.abs(x0)})`;         }
+         }else if(delta>0){
+     x1=((-b)-Math.sqrt(delta))/(2*a);
+     x2=((-b)+Math.sqrt(delta))/(2*a);
+             racond.textContent=`Delta = ${delta} > 0, alors le polynome admet deux racines réelles notées x1 et x2 telles que : x1 = ${x1} et x2 = ${x2}.`;
+             if(a==1 && x1<0 && x2<0){
+ Ffacto.textContent=`F(x) = (x+${Math.abs(x1)})(x+${Math.abs(x2)})`;
+             }else if (a==1 && x1<0 && x2>0){
+Ffacto.textContent=`F(x) = (x+${Math.abs(x1)})(x-${x2})`; 
+             }else if(a==1 && x1>0 && x2<0){
+Ffacto.textContent=`F(x) = (x-${Math.abs(x1)})(x+${Math.abs(x2)})`;
+             }else if(a!=1 && x1<0 && x2<0){
+                 Ffacto.textContent=`F(x) = ${a}(x+${Math.abs(x1)})(x+${Math.abs(x2)})`;
+             }else if(a!=1 && x1<0 && x2>0){
+                 Ffacto.textContent=`F(x) = ${a}(x+${Math.abs(x1)})(x-${Math.abs(x2)})`;
+             }else if(a!=1 && x1>0 && x2<0){
+                 Ffacto.textContent=`F(x) = ${a}(x-${Math.abs(x1)})(x+${Math.abs(x2)})`;
+             }else if (a!=1 && x1>0 && x2>0){
+                 Ffacto.textContent=`F(x) = ${a}(x-${Math.abs(x1)})(x-${Math.abs(x2)})`;
+             }else if(a==1 && x1>0 && x2>0){
+                 Ffacto.textContent=`F(x) = (x-${Math.abs(x1)})(x-${Math.abs(x2)})`;
+             }else if(a==1 && x1==0 && x2>0){
+                Ffacto.textContent=`F(x) = x(x-${Math.abs(x2)})`; 
+             }else if(a==1 && x1==0 && x2<0){
+                Ffacto.textContent=`F(x) = x(x+${Math.abs(x2)})`; 
+             }else if(a==1 && x1>0 && x2==0){
+                Ffacto.textContent=`F(x) = x(x-${Math.abs(x1)})`; 
+             }else if(a==1 && x1<0 && x2==0){
+                Ffacto.textContent=`F(x) = x(x+${Math.abs(x1)})`; 
+             }else if(a!=1 && x1==0 && x2>0){
+                Ffacto.textContent=`F(x) = ${a}x(x-${Math.abs(x2)})`; 
+             }else if(a!=1 && x1==0 && x2<0){
+                Ffacto.textContent=`F(x) = ${a}x(x+${Math.abs(x2)})`; 
+             }else if(a!=1 && x1>0 && x2==0){
+                Ffacto.textContent=`F(x) = ${a}x(x-${Math.abs(x1)})`; 
+             }else if(a!=1 && x1<0 && x2==0){
+                Ffacto.textContent=`F(x) = ${a}x(x+${Math.abs(x1)})`; 
+             }else{
+                 Ffacto.textContent="Pas de forme Factorisée !" 
+             }
+         }else{
+             racond.textContent=`ceci n'est pas un Trinome Veillez verifier votre équation et remplir tous les Champs svp !`
+         }
+            
+        } 
+    }
+       </script> 
+    </body>
+</html>

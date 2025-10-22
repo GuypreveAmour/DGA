@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Systeme de numeration et changement de bases</title>
+<script src="js.js" type="text/javascript" charset="utf-8">
+
+</script>
+<style type="text/css" media="all">
+    body {
+        text-align: center;
+        margin: 0;
+    }
+    h1 {
+        padding: 20px 0;
+        margin: 0;
+        background: linear-gradient(80deg, #9f9, #dd0);
+        text-transform: uppercase;
+        font-size: 2.5em;
+    }
+    h3 {
+        background: linear-gradient(80deg, #908, #dd0);
+        padding: 10px 0;
+        margin: 0;
+        font-weight: 200;
+        font-size: 30px;
+        color: aliceblue;
+    }
+    select {
+        margin: 20px;
+        border: 2px solid #00f;
+        background: linear-gradient(80deg, #55f, #00f);
+        border-radius: 5px;
+        color: aliceblue;
+        padding: 5px 10px;
+        font-weight: 200;
+        font-size: 20px;
+    }
+    input {
+        padding: 8px;
+        font-weight: 300;
+        font-size: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+    }
+    button {
+        padding: 8px;
+        font-size: 18px;
+        font-weight: 200;
+        border-radius: 8px;
+    }
+    p {
+        font-weight: 300;
+        font-size: 16px;
+    }
+    small{
+        font-size: 12px;
+    }
+</style>
+</head>
+<body>
+<h1>Changement De Base</h1>
+<h3>Systeme de numération</h3>
+<select name="sys" id="sys">
+<option value="1">Decimal → Binaire</option>
+<option value="2">Binaire → Decimal</option>
+<option value="3">Decimal → Hexadecimal</option>
+<option value="4">Hexadecimal → Decimal</option>
+<option value="5">Binaire → Hexadecimal</option>
+<option value="6">Hexadecimal → Binaire</option>
+</select>
+<input type="text" id="Nombre" placeholder="Nombre à Convertir" /><br />
+<button onclick="Convertir()">Convertir</button>
+<br />
+<p>
+Résultat : <span id="res"></span>
+</p>
+<script type="text/javascript" charset="utf-8">
+
+function Convertir() {
+let Nombre = document.querySelector("input").value;
+let sys = document.querySelector("#sys").value;
+let conv;
+if (sys == 1) {
+//Decimal to Binaire
+if (isNaN(Nombre)) {
+res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 10 ex:( 1492 )</small>`;
+} else {
+conv = Number(Nombre).toString(2);
+res.innerHTML = conv;
+
+}
+res.style = 'color:#55f'
+} else if (sys == 2) {
+//Binaire to Decimal
+if (/^[0-1]*$/.test(Nombre)) {
+conv = parseInt(Nombre, 2);
+//alert(conv);
+res.innerHTML = conv;
+
+} else {
+res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 2 ex:( 101001100 )</small>`;
+}
+res.style = 'color:#000'
+} else if (sys == 3) {
+//Decimal to Hexadecimal
+if (isNaN(Nombre)) {
+res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 10 ex:( 151492 )</small>`;
+} else {
+conv = Number(Nombre).toString(16);
+//alert(conv);
+res.innerHTML = conv;
+}
+res.style = 'color:#f55'
+} else if (sys == 4) {
+//Hexadecimal to Decimal
+if (/^[0-1][a-f]+$/.test(Nombre)){
+ conv = parseInt(Nombre, 16);
+//alert(conv);
+res.innerHTML = conv;   
+}else{
+   res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 16 ex:( 5f1a9d )</small>`; 
+}
+res.style = 'color:#000'
+} else if (sys == 5) {
+//Binaire to Hexadecimal
+if (/^[0-1]+$/.test(Nombre)){
+  conv = Number(Nombre).toString(16);
+//alert(conv);
+res.innerHTML = conv;  
+}else{
+    res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 2 ex:( 1001110 )</small>`;
+}
+res.style = 'color:#f55'
+} else if (sys == 6) {
+//Hexadecimal to Binaire
+if (/^[0-1]+$/.test(Nombre)){
+let conv0 = parseInt(Nombre, 16);
+
+conv = Number(conv0).toString(2);
+//alert(conv);
+res.innerHTML = conv;
+}else{
+    res.innerHTML = `<br /><small>Veuillez Entrer un Nombre en Base 16 ex:( df51a2e )</small>`;
+}
+res.style = 'color:#55f'
+} else {
+res.innerHTML = '0';
+}
+}
+
+</script>
+</body>
+</html>

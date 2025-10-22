@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title> dga Input et un button </title>
+        <style type="text/css" media="all">
+         body{
+             font-family: Times New Roman;
+         }  
+         h1{
+             color: blue;
+             text-decoration: none;
+             border: solid 10px blue;
+             text-align: center;
+             border-radius: 50px 50px 0px 0;
+             padding: 20px;
+             box-shadow: 5px 5px 10px black;
+             text-decoration: underline 3px;
+             background-color: #999aaa;
+         }
+         .corps{
+             border: solid 10px blue;
+             padding: 20px;
+             border-radius: 0 0 50px 50px;
+             background-color: #999aaa;
+         }
+         input{
+             border: solid 3px green;
+             border-radius: 10px;
+             padding-left: 10px;
+         }
+         #operator{
+             border: solid 2px red;
+             border-radius: 5px;
+             background-color: yellow;
+             font-size: 20px;
+             text-align: center;
+         }
+         .calcul{
+             border: solid 4px black;
+             border-radius: 5px;
+             font-size: 20px;
+             font-family: Times New Roman;
+             color:white;
+             background-color: #222eee;
+         }
+         #res{
+             
+         }
+         
+        </style>
+        
+    </head>
+    <body>
+        <h1>Mini Calculatrice  </h1>
+        
+                <div class="corps">
+        <label for="num">Valeur de a :</label>
+        <input type="number" id="num" placeholder="  saisir la valeur de a" /><br ><br>
+        <label for="num1">Valeur de b :</label>
+                <input type="number" id="num1" placeholder="  saisir la valeur de b "/><br><br>
+                <label for="operator"><u><em>Choisir un Operateur</u><p id="opch"></p> </em></label><br>
+    <select id="operator" >
+     
+        <option value="+">+</option>
+         <option value="-">-</option>
+         <option value="×">×</option>
+          <option value="÷">÷</option>
+            
+ </select>
+ <br><br>
+        <button type="submit" class="calcul" onclick="calcul()">Calculer</button>
+        
+        <p id="res"></p>
+        
+        </div>
+        
+
+        
+        <script type="text/javascript" charset="utf-8">
+        
+        function calcul(){
+     let a=parseFloat(document.getElementById("num").value);
+     let b=parseFloat(document.getElementById("num1").value);
+     let result;
+    const opera = document.getElementById("operator").value;
+    operchoix=document.getElementById("opch")
+    
+    if(isNaN(a) || isNaN(b)){
+        result="Entrez un nombre valide svp !"
+       document.getElementById("res").textContent=result;
+ 
+    }else {
+    switch(opera){
+        case "+":result = a + b;
+        operchoix.textContent="Addition : + ";
+        break;
+        case "-":result=a-b;
+        operchoix.textContent="Soustraction : - ";
+        break;
+        case "×":result=a*b;
+        operchoix.textContent="multiplication : × ";
+        break;
+        case "÷":result=b!==0 ? a/b:" Impossible: Division par zero";
+        operchoix.textContent="Division : ÷ ";
+        break;
+        default:result="Operateur Invalide !";
+    }
+     
+document.getElementById("res").textContent=`${a} ${opera} ${b} = ${result}`;}
+            
+        }
+        </script>
+    </body>
+</html>

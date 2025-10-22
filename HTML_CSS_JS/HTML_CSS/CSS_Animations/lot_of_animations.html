@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animations CSS avancées</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    h2 {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      text-align: center;
+    }
+
+    /* 1. Loader animé */
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid lightgray;
+      border-top: 5px solid royalblue;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* 2. Arc-en-ciel */
+    .color-box {
+      width: 200px;
+      height: 100px;
+      border-radius: 20px;
+      animation: colors 5s infinite;
+      margin: auto;
+    }
+
+    @keyframes colors {
+      0%   { background: red; }
+      20%  { background: orange; }
+      40%  { background: yellow; }
+      60%  { background: green; }
+      80%  { background: blue; }
+      100% { background: violet; }
+    }
+
+    /* 3. Bounce */
+    .bounce-box {
+      width: 80px;
+      height: 80px;
+      border-radius:100px ;
+      background: hotpink;
+      position: relative;
+      animation: bounce 2s infinite;
+      margin: auto;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        top: 0;
+        animation-timing-function: ease-in;
+      }
+      50% {
+        top: 150px;
+        animation-timing-function: ease-out;
+      }
+    }
+
+    /* 4. Machine à écrire */
+    .typing {
+      width: 35ch;
+      animation: typing 10s steps(35), blink .5s step-end infinite normal;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid;
+      font-family: monospace;
+      margin: auto;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+    }
+
+    @keyframes blink {
+      50% { border-color: transparent; }
+    }
+
+    /* 5. Mega animation */
+    .mega-box {
+      width: 100px;
+      height: 100px;
+      border-radius: 70px 70px/ 20px 20px;
+      background: tomato;
+      animation: mega 4s infinite;
+      margin: auto;
+    }
+
+    @keyframes mega {
+      0% {
+        transform: rotate(0) scale(1);
+        background: tomato;
+      }
+      25% {
+        transform: rotate(90deg) scale(1.2);
+        background: gold;
+      }
+      50% {
+        transform: rotate(180deg) scale(0.8);
+        background: limegreen;
+      }
+      75% {
+        transform: rotate(270deg) scale(1.5);
+        background: dodgerblue;
+      }
+      100% {
+        transform: rotate(360deg) scale(1);
+        background: tomato;
+      }
+    }
+.ldot{
+      width: 70px;
+      height: 70px;
+      border: 10px solid lightgray;
+      border-top: 10px solid royalblue;
+      border-radius: 50%;
+      animation: spin2 1s linear infinite;
+      margin: auto;
+      position: relative;
+      top: 200px;
+}
+@keyframes spin2{
+    to{
+        transform: rotate(360deg);
+    }
+}
+  </style>
+</head>
+<body>
+
+  <h2>🎬 Démonstration d’animations CSS Avec `@keyframes`</h2>
+
+  <div class="section">
+    <h3>1. Loader animé</h3>
+    <div class="loader"></div>
+  </div>
+
+  <div class="section">
+    <h3>2. Boîte arc-en-ciel</h3>
+    <div class="color-box"></div>
+  </div>
+
+  <div class="section">
+    <h3>3. Rebond (Bounce)</h3>
+    <div class="bounce-box"></div>
+  </div>
+
+  <div class="section">
+    <h3>4. Texte "machine à écrire"</h3>
+    <div class="typing">
+        Je suis une machine à écrire...
+    
+        </div>
+  </div>
+
+  <div class="section">
+    <h3>5. Mega animation</h3>
+    <div class="mega-box"></div>
+  </div>
+<div class="ldot"></div>
+</body>
+</html>

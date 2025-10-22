@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Remplacer un mot par un autre mot pour donner de sens a la phrase</title>
+<style type="text/css" media="all">
+body{
+    text-align: center;
+    line-height: 1.8;
+    margin: 0;
+}
+h1{
+    line-height: 1;
+    margin: 20px;
+    border: 5px double;
+    padding: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+    box-shadow: inset 10px 0px 0px #77f, inset 0px 10px 0px #99f,
+inset -10px 0px 0px #88f, inset 0px -10px 0px #66f;
+background:radial-gradient(circle,#fff,#99f,#99f ,#23e) ;
+border-radius: 20px;
+}
+label,p{
+    font-weight: 200;
+    font-size: 20px;
+    color: #001;
+}
+input{
+    margin-bottom: 20px;
+    font-weight: 100;
+}
+#motO{
+    border: 1px solid red;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#motF{
+    border: 1px solid blue;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+input:focus{
+    color: blue;
+    font-weight: 450;
+}
+button{
+    margin-block: 20px;
+    padding: 10px;
+    font-weight: 100;
+    font-size: 20px;
+    border: 1.6px solid #99f;
+    border-radius: 8px;
+}
+button:active{
+    font-weight: 400;
+    border-radius: 20px;
+    background-color: #f99;
+}
+span{
+    color: #00f;
+}
+#phrase{
+    padding: 20px;
+    background-color: #125298;
+    color: #fff;
+}
+</style>
+</head>
+<body>
+    <h1>Remplacer Un Mot Par Le Bon</h1>
+    <p id="phrase"></p>
+    <label for="motO">Mot A Remplacer : </label><br />
+    <input type="text" id="motO" placeholder="Mot A Remplacer" /><br />
+     <label for="motF">Remplacer Par : </label><br />
+     <input type="text" id="motF" placeholder="Mot Remplaçant" /><br />
+     <button onclick="Remplacer()">Remplacer</button>
+     <p>Resultat: <span id="Resultat"></span></p>
+  <button onclick="suivant()">suivant</button> 
+<script type="text/javascript" charset="utf-8">
+
+const list = [
+'Je suit malade', 'je manger la banane','elle ne mange pas du pain a la farine','je vas à la pharmacie de nuit','je revient du super marché','Amour manges du pain au chocolat'
+    ]
+let phrase = document.getElementById("phrase");
+let phrase_cont;
+let tab;
+function suivant(){
+  phrase.textContent = list[Math.floor(Math.random()*list.length)];
+ document.getElementById("Resultat").textContent = '';
+phrase_cont = phrase.textContent;
+console.log(phrase_cont);
+tab = phrase_cont.split(' ');
+console.log(tab);    
+}suivant()
+
+
+function Remplacer(){
+let motO = document.getElementById("motO").value,
+motF = document.getElementById("motF").value;
+for(var i = 0; i<tab.length;i++){
+    if(tab[i] == motO){
+        tab[i] = motF;
+    }
+    console.log(tab)
+}
+    
+document.getElementById("Resultat").textContent = tab.join(' ');
+    
+}
+</script>
+</body>
+</html>

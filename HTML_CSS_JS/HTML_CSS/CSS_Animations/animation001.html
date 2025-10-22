@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>animation 001</title>
+<style type="text/css" media="all">
+ *{
+     font-family: Times New Roman;
+ }          
+.items{
+    border: solid red 1px;
+    display: flex;
+    justify-content: space-around;
+}
+.item{
+    border: solid 1px;
+    width: 80px;
+    height: 80px;
+    border-radius: 500px;
+    align-content: center;
+    text-align: center;
+    font-size: 50px;
+}
+.item:hover{
+    align-content: end;
+    animation: dga 0.5s linear normal forwards;
+}
+@keyframes dga{
+    to{
+        width: 80px;
+        height: 200px;
+    }
+}
+</style>
+    </head>
+    <body>
+      
+      <div class="items">
+       <p class="item p1">1</p>
+       <p class="item p2">2</p>  
+       <p class="item p3">3</p>  
+       <p class="item p4">4</p>  
+      </div>
+    </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Inverser une chaine de caracters</title>
+<style type="text/css" media="all">
+
+</style>
+</head>
+<body>
+<h1>Inverser Une Chaine</h1>
+<label for="chaine">Tapez la chaine:</label>
+<input type="text" id="chaine" placeholder="chaine de caracter" />
+<p>
+Resultat : <span id="Resultat"></span>
+</p>
+<button onclick="Inverser()">Inverser</button>
+
+<script type="text/javascript" charset="utf-8">
+function Inverser(){
+    let chaine = document.getElementById("chaine").value;
+    console.log(chaine)
+    let decouper = chaine.split('');
+    console.log(decouper);
+    let inverse = decouper.reverse();
+    console.log(inverse);
+    let chaine_inverse = inverse.join('');
+    console.log(chaine_inverse)
+    document.getElementById('Resultat').textContent = chaine_inverse
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+        
+    </head>
+    <body>
+        <div id="donner" class="donner">
+            
+        </div>
+    <script type="text/javascript" charset="utf-8">
+        // Exemple d'appel à une API publique
+fetch("https://jsonplaceholder.typicode.com/posts")
+  .then(response => response.json()) // conversion en JSON
+  .then(data => {
+    console.log(data); // afficher les données récupérées
+    document.querySelector('#donner').textContent = data
+  })
+  .catch(error => {
+    console.error("Erreur :", error);
+    document.querySelector('#donner').textContent = 'Erreur'
+  });
+    </script>
+    </body>
+</html>

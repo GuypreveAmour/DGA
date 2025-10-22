@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Résolveur d'équation du second degré</title>
+  
+  <style type="text/css" media="all">
+  h2{
+      border: solid 5px red ;
+      padding: 5px 0 5px 5px;
+      font-family: Times New Roman;
+      color: rgb(255,100,0);
+      font-size: 30px;
+      border-radius: 5px;
+            background-color: white;
+      
+  }
+  label{
+      font-family: Times New Roman;
+  }
+  input{
+      border: solid 3px blue;
+      border-radius: 5px;
+      font-family: Times New Roman;
+      padding: 5px;
+  }
+  .butn{ 
+      border: solid 3px;
+      font-family: Times New Roman;
+      border-radius: 5px;
+  }
+  #resultat{
+      font-family: Times New Roman;
+  }
+  .input{
+      border: solid 5px blue;
+      padding: 20px 10px 0 10px;
+      border-radius: 5px;
+     background-color: white;
+      
+      
+  }
+  .resoudre{  
+      border: solid 5px blue;
+      padding: 20px 10px 0 10px;
+      border-radius: 5px;
+      background-color: white;
+      
+      
+  }
+  body{
+      border: solid 5px green;
+      padding: 5px;
+      border-radius: 5px;
+      background-color: pink;
+  }
+  .butn{
+      border-radius: 5px;
+      color: red;
+      background-color:yellow ;
+      box-shadow: 5px 5px 5px black;
+      padding: 10px;
+      font-size: 20px;
+  }
+     
+     .sol{
+         font-family: Times New Roman;
+         text-align: center;
+         text-decoration: underline 2px;
+         color: blue;
+         
+     } 
+  </style>
+  
+</head>
+<body>
+  <h2><u>Résolution d'une équation du second degré, de la forme</u>: ax² + bx + c = 0</h2>
+  <div class="input">
+       <label>Valeur de a : <input type="number" id="a" placeholder="Saisir la valeur de a "></label><br><br>
+  <label>Valeur de b : <input type="number" id="b" placeholder="Saisir la valeur de b "></label><br><br>
+  <label>Valeur de c : <input type="number" id="c" placeholder="Saisir la valeur de c "></label><br><br>
+   
+  </div>
+  <br>
+  
+  <br>
+  
+<div class="resoudre">
+    <button onclick="resoudre()" class="butn">Résoudre L'equation</button>
+    <p class="sol">SOLUTION</p>
+  
+ <p id="resultat"></p>  
+</div>
+
+  
+  <script>
+    function resoudre() {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const c = parseFloat(document.getElementById('c').value);
+      const resultat = document.getElementById('resultat');
+
+      if (a === 0) {
+        resultat.textContent = "Ce n'est pas une équation du second degré. La valeur de a doit être différent de 0.";
+    return;
+      }
+
+      const delta = b * b - 4 * a * c;
+
+      if (delta > 0) {
+        const x1 = (-b + Math.sqrt(delta)) / (2 * a);
+        const x2 = (-b - Math.sqrt(delta)) / (2 * a);
+        resultat.textContent = `Calcul du discriminant : Delta = ${delta} > 0. Donc l'equation admet deux solutions réelles : x₁ = ${x1} et x₂ = ${x2} . Alors l'ensemble de solution est S = {${x1} , ${x2}}`;
+      } else if (delta === 0) {
+        const x = -b / (2 * a);
+        
+        resultat.textContent = `Calcul du discriminant : Delta = ${delta}  (Delta= 0). Donc l'equation admet une solution réelle double : x = ${x} . D'où l'ensemble de solution est S = {${x}}`;
+      } else if(delta<0){
+        resultat.textContent = `Calcul du discriminant : Delta = ${delta} < 0. L'equation n'admet pas de solution réelle  car (delta < 0). Alors l'ensemble de solution est vide ==> S = { }`;
+      }else {
+          resultat.textContent="veuillez entrer la valeur de chaque coefficient SVP ! "
+      }
+      
+    }
+    
+  </script>
+</body>
+</html>

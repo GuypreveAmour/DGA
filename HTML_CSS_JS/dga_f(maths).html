@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Fonctions Mathématiques</title>
+        <style type="text/css" media="all">
+         
+         body{
+             font-family: Times New Roman;
+         } 
+         input{
+             font-family: Times New Roman;
+             font-size: 20px;
+         }
+         h1{
+             text-align: center;
+             text-decoration: underline;
+             border: solid 5px blue;
+             padding: 10px;
+         }
+         h2{
+             text-decoration: underline;
+             color: red;
+         }
+         h3{
+             text-decoration: underline 1px purple;
+         }
+         .abs,.max_min,.power,.racine,.trigo{
+             border: solid 2px black;
+             padding: 10px;
+         }
+         button{
+             font-family: Times New Roman;
+             border: solid 4px black;
+             background-color: blue;
+             color: white;
+             font-size: 20px;
+             border-radius: 5px;
+             padding:auto;
+         }
+         button:hover{
+             color: red;
+            /* opacity: 50%;*/
+             transform: ease;
+             transition: 0.1s;
+         }
+        </style>
+        
+    </head>
+    <body>
+        <h1 class="titre">Les Fonctions Mathématiques En JS</h1>
+    <div class="abs">
+        
+<h2>I- Valeur Absolue </h2>
+        <label for="abs">Valeur de x :</label>
+        <input type="number" id="abs" />
+        <br />        <br />
+        <button onclick="abs()">Calculer</button>
+        <p id="rabs"></p>
+    </div>
+    <br>
+    
+    <div class="max_min">
+        
+<h2>II- Maximum et minimum</h2>
+        <input type="number" id="val1"/>
+        <br>        <br>
+        <input type="number" id="val2"/>        <br>        <br>
+        <input type="number" id="val3"/>        <br>        <br>
+        <input type="number" id="val4"/>        <br>        <br>
+        <input type="number" id="val5"/><br /><br>
+        <button onclick="maxi()">Maximum</button>
+        <button onclick="mini()">Minimum</button>
+        <p id="max"></p>
+        <p id="min"></p>
+    </div>  <br>
+    
+    <div class="power">
+        
+<h2>III- Puissance</h2> 
+      x : <input type="number"  id="radical"/>  <br>        <br />
+      n : <input type="number"  id="expo"/><br><br>
+      <button onclick="Power()">Calculer</button>
+      <p id="power"></p>
+    </div>  <br>
+    <div class="racine"> 
+<h2>IV- Racine carré</h2>  
+        <input type="number"  id="var"/>        <br />        <br />
+        <button onclick="Racine()">Calculer</button>
+        <p id="racine"></p>
+     </div>  <br>
+     <div class="trigo">
+<h2>V- Trigonométrie</h2>
+
+<input type="number" placeholder="Valeur de l'angle x" id="teta"  />        <br />        <br />
+<button onclick="Trigo()">Calculer</button>
+<p id="cond"></p>
+<h3>Sinus</h3>
+<p id="sin"></p>
+<h3>Cosinus</h3>
+<p id="cos"></p>
+<h3>Tangente</h3>
+<p id=tan></p>
+<h3>Cotangente</h3>
+<p id="cotan"></p>
+    </div>  <br>
+        <script type="text/javascript" charset="utf-8">
+        
+    /* Fonction Valeur Absolue*/
+    
+          function abs(){
+              let x=document.getElementById("abs").value;
+              const rabs = document.getElementById("rabs");
+              if(x==""){
+                  rabs.textContent="Entrer Invalide";
+              }else{
+             let y=Math.abs(x);
+         rabs.textContent=`| ${x} | = ${y}`
+              }
+          }  
+         
+    /*Fonctions Maximum et Minimum*/
+    
+                 /*Maximum*/
+         function maxi(){
+        let n1=document.getElementById("val1").value;
+         let n2=document.getElementById("val2").value;
+         let n3=document.getElementById("val3").value;
+         let n4=document.getElementById("val4").value;
+         let n5=document.getElementById("val5").value;
+         let max =document.getElementById("max")
+         
+         let M=Math.max(n1,n2,n3,n4,n5);
+          max.textContent=`Max = ${M}`;
+          
+         }
+                 /* minimum */
+         function mini(){
+            let n1=document.getElementById("val1").value;
+         let n2=document.getElementById("val2").value;
+         let n3=document.getElementById("val3").value;
+         let n4=document.getElementById("val4").value;
+         let n5=document.getElementById("val5").value;
+          let min =document.getElementById("min")
+          let m =Math.min(n1,n2,n3,n4,n5);
+          min.textContent=`Min = ${m}`
+             
+         }
+         /*Fonction puissance (Pow)*/
+         
+          function Power(){
+            let x=document.getElementById("radical").value;
+            let n=document.getElementById("expo").value;
+            const resexpo=document.getElementById("power");
+            if(x=="" || n==""){
+                resexpo.textContent="Entrer Invalide "
+            }else{
+           let exp=Math.pow(x,n);
+
+           resexpo.textContent=`${x}^${n} = ${exp}`
+            }
+          }
+          
+         /* Fonction Racine Carré */
+         function Racine(){
+             let x =document.getElementById("var").value;
+             const val =document.getElementById("racine");
+             if(x<0){
+                 val.textContent=`√${x} = ${Math.sqrt(Math.abs(x))}i`;
+             }else if(x==""){
+              val.textContent="Entrer Invalide";
+             }else{
+             let resulta=Math.sqrt(x);
+             val.textContent=`√${x} = ${resulta}`
+             }
+         }
+         /* Fonctions Trigonometriques*/
+         function Trigo(){
+             let x=document.getElementById("teta").value;
+             const rsin=document.getElementById("sin");
+             const rcos=document.getElementById("cos");
+             const rtan=document.getElementById("tan");
+             const rcotan=document.getElementById("cotan");
+             const cond=document.getElementById("cond");
+             if(x==""){
+                 cond.textContent="Entrer Invalide";
+                 rsin.textContent=""
+                 rcos.textContent=""
+                 rtan.textContent=""
+                 rcotan.textContent=""
+             }else{
+             cond.textContent="";   
+             let Sin=Math.sin(x);
+             rsin.textContent=`Sin(${x}) = ${Sin}`;
+             let Cos=Math.cos(x);
+             rcos.textContent=`Cos(${x}) = ${Cos}`;
+             let Tan=Sin/Cos;
+             rtan.textContent=`tan(${x}) = ${Tan}`;
+             let Cotan=1/Tan;
+             rcotan.textContent=`cotan(${x}) = ${Cotan}`;
+                 
+             }
+             
+         }
+         
+        </script>
+    </body>
+</html>

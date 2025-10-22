@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Projet JavaScript à Pratiquer !</title>
+<link rel="stylesheet" href="style.css" />
+<style type="text/css" media="all">
+* {
+margin: 0;
+padding: 0;
+}
+body {}
+li {
+font-weight: bold;
+margin-block: 10px;
+}
+ul li {
+font-weight: 300;
+font-size: 14px;
+}
+ol {
+margin-left: 35px;
+}
+h1 {
+text-align: center;
+margin: 20px;
+background: #98f;
+padding: 10px;
+border-radius: 10px;
+box-shadow: inset 60px 30px 0px rgba(250,60,190,0.7);
+}
+h2 {
+text-align: center;
+margin: 20px;
+text-decoration: underline;
+}
+h3 {
+margin: 20px;
+text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>Projets JS </h1>
+<h2>Niveau Debutant</h2>
+<h3>🔤 Projets simples pour pratiquer les strings en JS
+</h3>
+<ol>
+<li> <input type="checkbox" checked=""/> 👉  Compteur de caractères
+<ul>
+<li>Tu tapes une phrase et ton script affiche le nombre de caractères (espaces inclus et sans espaces).</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Inverser une chaîne
+<ul>
+<li>Exemple : "Bonjour" devient "ruojnoB".</li>
+<li>Utile pour comprendre .split(), .reverse(), .join().
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Palindrome Checker
+<ul>
+<li>Vérifier si un mot ou une phrase est un palindrome (ex: "radar", "kayak").</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Compter les voyelles et consonnes
+<ul>
+<li>Tu parcours une string et comptes combien de voyelles (a, e, i, o, u, y) et combien de consonnes il y a.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Convertisseur de casse <br />
+Transformer un texte en :
+<ul>
+<li>majuscules (toUpperCase()),
+</li>
+<li>minuscules (toLowerCase()),
+</li>
+<li>casse alternée (HeLLo WoRlD).</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Chercher un mot dans une phrase
+<ul>
+<li>Exemple : phrase = "J’aime le JavaScript" → chercher "JavaScript" et dire s’il est présent.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Remplacer un mot
+<ul>
+<li>Exemple : "Je déteste les bugs" → remplacer "déteste" par "aime".
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Titre automatique
+<ul>
+<li>Transformer une phrase en titre (mettre la première lettre de chaque mot en majuscule).</li>
+</ul>
+
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Compteur de mots
+<ul>
+<li>Écrire un script qui compte combien de mots une phrase contient.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" checked=""/> 👉  Générateur d’acronymes
+<ul>
+<li>Exemple : "Hyper Text Markup Language" → "HTML".</li>
+</ul>
+</li>
+</ol>
+<h2>Niveau Moyen(Intermediaire)</h2>
+<h3>
+🚀 Projets plus avancés avec manipulation de strings
+</h3>
+<ol>
+<li> <input type="checkbox" /> 👉 Mini-moteur de recherche (search engine simplifié)
+<ul>
+<li>Tu tapes un mot-clé, ton script trouve toutes les occurrences et met en évidence les résultats.
+</li>
+<li>Tu as une liste de textes (articles, citations, chansons).
+</li>
+<li>Bonus : gestion de recherche insensible à la casse (maj/min).
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Correcteur orthographique basique
+<ul>
+<li>Entrée : "Bojour le mond"</li>
+<li>Sortie : propose "Bonjour le monde".
+</li>
+<li>Utiliser une petite liste de mots connus et comparer la similarité (Levenshtein distance).</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Chiffrement / Déchiffrement (Crypto)
+<ul>
+<li>Implémente un chiffrement de César ou ROT13.
+</li>
+<li>Exemple : "Bonjour" avec décalage 3 → "Erqmrxu".
+</li>
+<li>Bonus : un mode pour décrypter automatiquement.</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Analyseur de texte (Text Analyzer)
+<ul>
+<li>Tu colles un paragraphe → le programme sort :
+</li>
+<li>le nombre de mots,</li>
+<li>le mot le plus fréquent,</li>
+<li>les phrases les plus longues,</li>
+<li>une estimation du temps de lecture.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Générateur de pseudo / nom d’utilisateur
+<ul>
+<li>Entrée : ton prénom, nom.</li>
+<li>Sortie : génère plusieurs pseudos en combinant lettres, chiffres, majuscules, etc.
+</li>
+<li>Exemple : "Guy Damba" → "guyd123", "DambaGuyX", "GX2025".</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Convertisseur de nombres en lettres
+<ul>
+<li>Entrée : 245</li>
+<li>Sortie : "deux cent quarante-cinq".
+</li>
+<li>Très bon pour tester les boucles + conditions + manipulation de strings.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Markdown to HTML converter
+<ul>
+<li>Entrée : # Titre \n **gras** \n *italique*</li>
+<li>Sortie : <br />
+<a><</a>h1<a>></a>Titre<a><</a>/h1<a>></a>
+<a><</a>b<a>></a> gras <a><</a>/b<a>></a>
+<a><</a>i<a>></a> italique <a><</a>/i<a>></a>
+</li>
+<li>Tu recrées un mini-parser de Markdown.</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Mini chatbot basé sur des mots-clés
+<ul>
+<li>L’utilisateur écrit : "Bonjour"</li>
+<li>Le bot répond : "Salut ! Comment ça va ?"
+</li>
+<li>Basé uniquement sur la recherche de mots dans la string (if phrase.includes(...)).
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Générateur de citations aléatoires (Random Quote Generator)
+<ul>
+<li>Stocker une liste de phrases,
+</li>
+<li>Afficher une citation aléatoire,
+</li>
+<li>Bonus : possibilité de chercher une citation contenant un mot clé.</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Editeur de texte avec statistiques en temps réel
+<ul>
+<li>Zone textarea où tu tapes.
+</li>
+<li>À chaque frappe, ça affiche en direct :
+</li>
+<li>nombre de caractères,
+</li>
+<li>nombre de mots,
+</li>
+<li>le mot le plus utilisé.</li>
+</ul>
+</li>
+</ol>
+<h2>Niveau Avancé</h2>
+<h3>🚀 Projets costauds avec Arrays + Objects
+</h3>
+<ol>
+<li> <input type="checkbox" /> 👉 Gestionnaire de tâches (To-Do List avancée)
+<ul>
+<li>Ajouter / supprimer / modifier des tâches (stockées dans un array d’objets).
+</li>
+<li>Chaque tâche = { id, titre, description, statut }.
+</li>
+<li>Filtrer par terminées / en cours / urgentes.
+</li>
+<li>Bonus : sauvegarder en localStorage.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Mini-système de gestion d’étudiants
+<ul>
+<li>Stocker les élèves comme objets :<br />
+
+{ id: 1, nom: "Marie", note: 15 }
+</li>
+<li>Fonctions :</li>
+<li>ajouter un étudiant,</li>
+<li>afficher tous les étudiants,</li>
+<li>calculer la moyenne générale,</li>
+<li>trouver le meilleur et le plus faible.</li>
+</ul>
+
+</li>
+<li> <input type="checkbox" /> 👉 Panier e-commerce (shopping cart)
+<ul>
+<li>Un produit = objet { id, nom, prix, quantite }.
+</li>
+<li>Ajouter / retirer des produits dans un panier (array).
+</li>
+<li>Calculer le total du panier.
+</li>
+<li>Bonus : appliquer des réductions (promo codes).</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 
+👉 Générateur de quiz interactif
+<ul>
+<li>Questions stockées dans un array d’objets : <br />
+
+{ question: "2+2 ?", choix: [3, 4, 5], reponse: 4 }</li>
+<li>
+L’utilisateur choisit une réponse → correction automatique.
+</li>
+<li>Score final affiché.</li>
+</ul>
+
+
+
+</li>
+<li> <input type="checkbox" /> 👉 Gestionnaire de contacts (annuaire téléphonique)
+<ul>
+<li>Chaque contact = objet { id, nom, telephone, email }.
+</li>
+<li>Recherche d’un contact par nom ou numéro.</li>
+<li>Modification / suppression possible.
+</li>
+<li>Bonus : exporter en JSON.
+</li>
+
+</ul>
+
+</li>
+<li> <input type="checkbox" /> 👉 Système de votes (sondage)
+<ul>
+<li>Une liste de candidats = array d’objets { nom, votes }.
+</li>
+<li>L’utilisateur peut voter → incrémentation du compteur.
+</li>
+<li>Afficher en direct le gagnant avec plus de votes.</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Mini-bibliothèque numérique
+<ul>
+<li>Chaque livre = objet { titre, auteur, dispo: true/false }.
+</li>
+<li>Fonctions :</li>
+<li>ajouter un livre,</li>
+<li>emprunter / rendre un livre,</li>
+<li>rechercher par auteur ou titre.</li>
+
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Gestionnaire de notes scolaires
+<ul>
+<li>Stocker un tableau de matières et leurs notes.
+</li>
+<li>Exemple :</li>
+<li>
+{ matiere: "Maths", notes: [12, 15, 18] }
+</li>
+<li>Moyenne par matière, moyenne générale, classement des matières.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Mini-réseau social simplifié
+<ul>
+<li>Un utilisateur = objet { id, nom, amis: [], posts: [] }.
+</li>
+<li>Ajouter des amis, publier un post, liker un post.
+</li>
+<li>Afficher le fil d’actualité d’un utilisateur.
+</li>
+</ul>
+</li>
+<li> <input type="checkbox" /> 👉 Analyseur de données JSON
+<ul>
+<li>Charger un fichier JSON (ex: liste de produits, d’utilisateurs, etc.).
+</li>
+<li>Parcourir les données et en extraire :
+</li>
+<li>nombre total d’objets,
+</li>
+<li>filtrage selon une condition,
+</li>
+<li>regroupement par catégories.</li>
+</ul>
+</li>
+</ol>
+</body>
+</html>
+

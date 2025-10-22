@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heure actuelle</title>
+</head>
+<body>
+  <h1>Il est :</h1>
+  <p id="heure"></p>
+
+  <script>
+    function afficherHeure() {
+      const maintenant = new Date();
+      const heures = maintenant.getHours().toString().padStart(2, '0');
+      const minutes = maintenant.getMinutes().toString().padStart(2, '0');
+      const secondes = maintenant.getSeconds().toString().padStart(2, '0');
+      const heureActuelle = `${heures}:${minutes}:${secondes}`;
+      document.getElementById("heure").textContent = heureActuelle;
+    }
+
+    setInterval(afficherHeure, 1000); // Met à jour toutes les secondes
+    afficherHeure(); // Affiche dès le chargement
+  </script>
+
+</body>
+</html>

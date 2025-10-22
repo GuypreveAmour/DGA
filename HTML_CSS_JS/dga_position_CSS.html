@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Démo Positionnement CSS</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .section {
+      padding: 30px;
+      border-bottom: 1px solid #007bbf;
+    }
+
+    .box {
+      width: 200px;
+      height: 100px;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    /* Static */
+    .static-box {
+      position: static;
+      background-color: #2196F3;
+    }
+
+    /* Relative */
+    .relative-box {
+      position: relative;
+      top: 20px;
+      left: 30px;
+      background-color: #FF9800;
+    }
+
+    /* Absolute */
+    .absolute-container {
+      position: relative;
+      height: 200px;
+      background-color: #eee;
+    }
+
+    .absolute-box {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #9C27B0;
+    }
+
+    /* Fixed */
+    .fixed-box {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: #E91E63;
+      z-index: 999;
+    }
+
+    /* Sticky */
+    .sticky-box {
+      position: sticky;
+      top: 0;
+      background-color: #607D8B;
+      z-index: 10;
+    }
+
+    .long-content {
+      height: 1500px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Démo du Positionnement CSS</h1>
+
+  <!-- Static -->
+  <div class="section">
+    <h2>Position: Static (par défaut)</h2>
+    <div class="box static-box">Boîte Static</div>
+  </div>
+
+  <!-- Relative -->
+  <div class="section">
+    <h2>Position: Relative</h2>
+    <div class="box relative-box">Boîte Relative (décalée)</div>
+  </div>
+
+  <!-- Absolute -->
+  <div class="section absolute-container">
+    <h2>Position: Absolute</h2>
+    <div class="box absolute-box">Boîte Absolute (dans parent)</div>
+  </div>
+
+  <!-- Sticky -->
+  <div class="section long-content">
+    <h2 class="box sticky-box">Boîte Sticky (reste en haut quand on scroll)</h2>
+    <p>Fais défiler cette section pour voir le sticky en action...</p>
+  </div>
+
+  <!-- Fixed -->
+  <div class="box fixed-box">Boîte Fixed (toujours visible)</div>
+
+</body>
+</html>

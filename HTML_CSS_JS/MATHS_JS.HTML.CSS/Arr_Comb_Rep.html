@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Arrangement Combinaison et Repetition</title>
+<style type="text/css" media="all">
+
+</style>
+</head>
+<body>
+<h1>Denombrement</h1>
+
+<!-- Repetition -->
+<h2>I. <span>Repetition</span></h2>
+<label for="n">n:</label>
+<input type="number" id="n" placeholder="Valeur de n" />
+<button onclick="fact()">Calculer</button><br />
+<p id="resultat"></p>
+
+<!-- Arrangement -->
+<h2>II. <span>Arrangement</span></h2>
+<label for="pA">p:</label>
+<input type="number" id="pA" /><br />
+<label for="nA">n:</label>
+<input type="number" id="nA" /><br />
+<button onclick="Arr()">Calculer</button>
+<p id="resultatArr"></p>
+
+<!-- Combinaison -->
+<h2>III. <span>Combinaison</span></h2>
+
+<script type="text/javascript" charset="utf-8">
+
+/* Repetition de n elements d'une liste */
+function fact(n) {
+n = document.getElementById("n").value;
+let fact = 1;
+for (var i = 1; i <= n; i++) {
+fact *= i;
+}
+let resultat = document.getElementById("resultat");
+resultat.textContent = fact;
+}
+
+/* Arrangement de p elements de E parmi les n */
+function factArr(m) {
+for (var j = 1; j < m; j++) {
+m*= j;
+}
+}
+console.log(factArr(5))
+
+function Arr(nA, pA) {
+
+nA = parseInt(document.getElementById("nA").value);
+pA = parseInt(document.getElementById("pA").value);
+let resltArr;
+document.getElementById("resultatArr").textContent = resltArr;
+
+}
+</script>
+</body>
+</html>

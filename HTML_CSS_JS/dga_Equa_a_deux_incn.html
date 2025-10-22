@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Equation a deux inconnues du premier degre dans R×R</title>
+ <style type="text/css" media="all">
+    input{
+        width: 20%;
+        margin: 7px;
+        border: solid 2px blue ;
+        border-radius: 5px;
+        box-shadow: 0px 10px 10px;
+        text-align: right;
+        padding: 5px;
+        
+        
+    } 
+    button{
+        border: solid 3px magenta;
+        border-radius: 5px;
+        box-shadow: 0 10px 10px;
+        font-family: Times New Roman;
+        font-size: 20px;
+        background-color: gray;
+        
+    }
+    body{
+        font-family: Times New Roman;
+    }
+    .sol{
+        border: solid 4px red;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 5px 10px 10px;
+    }
+    #code{
+        border: solid 10px green;
+        padding: 10px 10px 50px 10px;
+        border-radius: 10px;
+    }
+    #text{
+        border: solid 4px blue;
+        padding: 5px;
+        text-align: center;
+        text-decoration:underline;
+        font-size: 20px;
+        border-radius: 5px;
+        text-shadow: 1px 1px 1px black;
+        box-shadow: 4px 10px 10px;
+    }
+ </style>
+        
+    </head>
+    <body>
+        
+    <!--Code html-->
+    <div id="code">
+        <p id="text">RESOLUTION D'UNE EQUATION DU PREMIER DEGRE A DEUX INCONNUES DANS IR×IR</p> 
+    <div>
+    <input type="number" class="a1" id="a1" placeholder="..."/>x
+     <input type="number" class="b1" id="b1" placeholder="..."/>y =
+      <input type="number" class="c1" id="c1" placeholder="..."/>(E1)
+      </div>
+      <br>
+      <div>
+     <input type="number" class="a2" id="a2" placeholder="..."/>x
+     <input type="number" class="b2" id="b2" placeholder="..." />y =
+     <input type="number" class="c2" id="c2" placeholder="..."/>(E2)
+     </div>
+     <br></br>
+     <button onclick="resoudre()">Resoudre</button> <br></br>
+     
+     <div class="sol">
+    <p id="x">x = </p> 
+      <p id="y">y = </p>  
+      <p id="sol"></p>
+          
+     </div>
+     </div>
+
+     <script type="text/javascript" charset="utf-8">
+         function resoudre(){
+          let a1=parseFloat(document.getElementById("a1").value);
+          let a2=parseFloat(document.getElementById("a2").value);
+          let b1=parseFloat(document.getElementById("b1").value);
+          let b2=parseFloat(document.getElementById("b2").value);
+          let c1=parseFloat(document.getElementById("c1").value);
+          let c2=parseFloat(document.getElementById("c2").value);
+          let dp=((a1*b2)-(a2*b1))
+          let dx=((c1*b2)-(c2*b1));
+          let dy=((c2*a1)-(c1*a2));
+          let val_x =document.getElementById("x");
+          let val_y = document.getElementById("y");
+          const sol =document.getElementById("sol");
+          
+          if(dp!==0){
+          let x = dx/dp;
+          let y = dy/dp;
+          val_x.textContent=` x = ${x} `;
+        val_y.textContent=` y = ${y} `;
+ sol.textContent=` S = { (${x} ; ${y}) }`;
+         }else{
+        val_x.textContent=" x =  ";
+        val_y.textContent=" y =  ";     
+      sol.textContent="pas de solution : S = { }"; }
+         }
+     </script>
+    </body>
+</html>

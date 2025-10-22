@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`</title>
+        meta
+    </head>
+    <body>
+        
+       
+        
+        
+        
+        
+        <script type="text/javascript" charset="utf-8">
+            class ChaîneTexte {
+  constructor(texte) {
+    this.texte = texte;
+  }
+
+  enMajuscules() {
+    this.texte = this.texte.toUpperCase();
+    return this;
+  }
+
+  ajouterPoint() {
+    this.texte += ".";
+    return this;
+  }
+
+  afficher() {
+    console.log(this.texte);
+  }
+}
+
+const message = new ChaîneTexte(prompt("ecrire un mot en minuscule :"));
+message.enMajuscules().ajouterPoint().afficher(); // BONJOUR.
+document.body.style.background = "blue"
+setTimeout(() => document.body.style.background = '', 3000); 
+        </script>
+        body
+    </body>
+</html>

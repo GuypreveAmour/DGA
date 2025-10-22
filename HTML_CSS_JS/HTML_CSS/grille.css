@@ -1,0 +1,29 @@
+*{
+    font-family: Times New Roman;
+}
+body{
+    align-content: center;
+}
+.content{
+    list-style: none;
+    display: flex;
+    width: 1400px;
+    justify-content: space-between;
+    margin-left: 70px;
+    
+}
+.boutons{
+    border: solid 1px;
+    text-align: center;
+}
+.pan{
+    border:none ;
+    background-color: white;
+    width: 200px;
+    height: 300px;
+    text-align: center;
+    align-content: center;
+    font-size: 100px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.75);
+}

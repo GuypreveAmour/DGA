@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>les legends </title>
+<style type="text/css" media="all">
+.ma_div{
+    border: solid 4px ;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    text-align: center;
+    font: 20px Times New Roman;
+     }
+img{
+    width: 50%;
+    height: auto;
+    border-radius: 30px;
+    filter: drop-shadow(10px 10px 10px black);
+    animation: dga 4s infinite linear alternate;
+}
+@keyframes dga{
+    0%,100%{opacity: 0.5;
+        
+    }
+    50%{opacity: 1;
+        width: 70%;
+        height: auto;
+        transform: translate(60px);
+        
+    }
+}
+</style>
+        
+    </head>
+    <body>
+        <h1>Formulaire HTML</h1>
+        <fieldset>
+         <legend>
+           information personnelles
+        </legend>
+        <label for="name">Name</label>
+        <input type="text" placeholder="user name" id="name" /><br />
+        <label for="date">Date de naissance</label>
+        <input type="date" placeholder="date de naissance" id="date" /><br />
+        Heure: <input type="time" id="heure"  />
+        </fieldset>
+        <img src="dga.jpg" alt="" />
+<script type="text/javascript" charset="utf-8">
+const div=document.createElement("div");
+div.textContent="Amour dga";
+div.classList=("ma_div")
+document.body.appendChild(div)
+</script>
+       
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Heure actuelle</title>
+</head>
+<body>
+  <h1> JAVASCRIPT :</h1>
+  <hr>
+  
+
+  <script>
+let a = parseInt(prompt("valeur de a"));
+     document.write("a = ",a , " , ");
+let b = parseInt(prompt("valeur de b"));
+     document.write("b = ",b , " , et ");
+let c = parseInt(prompt("valeur de c"));
+     document.write("c = ", c , " .  ==> ");
+let D = b*b - 4*a*c;
+   document.write("D = ",D , " . ");
+   let x0=(-b)/(2*a);
+   let x1=(-b-(D)**(1/2))/(2*a);
+   let x2=(-b+(D)**(1/2))/(2*a);
+   
+   if (D<0){document.write("l'equation n'a pas de solutions reels. Alors S = { }")
+       
+   }
+   else if (D==0){document.write("l'equation admet une solution double noté x0 telle que : x0 = ", x0,".  Alors  S = { ",x0," }" )} 
+   else{
+       document.write("  l'equation admet deux solutions reels x1 et x2 telles que : x1 =  ", x1 , "  et  x2 =  ",x2, "  alors S = { ", x1," ; " ,x2," }")};
+     
+     
+  </script>
+    
+    
+
+</body>
+</html>

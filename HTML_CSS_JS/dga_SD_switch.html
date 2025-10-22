@@ -1,0 +1,26 @@
+<h1>EQUATION DU SECOND DEGRE</h1>
+
+
+<script type="text/javascript" charset="utf-8">
+   let a,b,c,D,x0,x1,x2;
+a= parseInt(prompt("valeur de a : "));
+document.write(" a = " , a);
+b= parseInt(prompt("valeur de b : "));
+document.write(";   b = " , b);
+c= parseInt(prompt("valeur de c : "))
+document.write(";   c = " , c);
+D = b*b-4*a*c; 
+x0=(-b)/(2*a);
+x1=(-b-(D)**(1/2))/(2*a);
+x2=(-b+(D)**(1/2))/(2*a);
+document.write("  Alors    D = ",D," . ");
+
+switch(D){
+    case 1:document.write("pas de s");
+    break;
+    case 2:document.write("solution double");
+    break;
+    default: document.write("deux solution reels x1 et x2");
+}
+
+</script>

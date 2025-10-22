@@ -1,0 +1,144 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+    margin-block: 10%;
+}
+.Sections{
+    padding: 20px;
+    margin: 10px;
+    justify-items: center;
+}
+.demarrer{
+    border: 5px solid rgba(255,200,0,0.9);
+    border-radius: 50px;
+    margin: 20px 10px;
+    padding: 20px 50px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bolder;
+    background: radial-gradient(circle, #0f0,#0a0,#0f0,#fff);
+    box-shadow: 0px 100px 50px -20px #000;
+}
+
+
+/* La section de jeu */
+
+.page-jeu{
+    justify-self: center;
+    position: fixed;
+    top: 8%;
+    border: 1px solid;
+    border-radius: 10px;
+    background: linear-gradient(to left, #fff, #777);
+    padding-inline: 20px;
+    display: none;
+}
+.titre-page-jeu{
+    text-align: center;
+}
+.nom-drapeau{
+    display: grid;
+    gap: 5px;
+}
+.nom-drapeau button{
+    padding: 10px;
+    width: 80%;
+    justify-self: center;
+}
+.image-drapeau{
+    width: 200px;
+    height: 150px;
+    margin: 20px 10px;
+    border-radius: 30px;
+    padding: 5px;
+    border: 3px solid #00a;
+}
+.sect-image-drapeau img{
+    border-radius: 30px;
+} 
+.Valider{
+    margin: 10px;
+    padding: 10px;
+}
+.Valider button{
+    padding: 10px;
+    margin: 10px;
+}
+.score{
+    width: 60%;
+    height: 40px;
+    text-align: center;
+    align-content: center;
+    font-weight: bold;
+    color: #fff;
+    background-color: #999;
+    margin: 10px;
+    justify-self: center;
+    border-radius: 10px;
+}
+#appreciate{
+  width: 80%;
+  height: 30px;
+  border-radius: 5px;
+  background-color: rgba(0,0,255,0.89);
+  text-align: center;
+  align-content: center;
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba(0,0,0,0.6);
+  padding: 10px;
+  position: fixed;
+  top: 30%;
+  left: 20px;
+  display: none;
+  
+}
+.controls{
+    display: flex;
+    justify-content: end;
+    margin: 0px;
+    align-items: center;
+    padding: 0;
+}
+.agrandir{
+    width: 30px;
+    height: 25px;
+    border: 1px solid ;
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+    background: linear-gradient(to top left, #aaf, #ddf);
+}
+.fermer{
+    width: 28px;
+    height: 25px;
+    border: 1px solid ;
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+    background: linear-gradient(to top left, #f00, #f55, #f00);
+}
+
+.reduir{
+width: 28px;
+    height: 25px;
+    border: 1px solid ;
+    padding: 0;
+    margin: 5px;
+    border-radius: 5px;
+    background: linear-gradient(to top left, #aaf, #ddf);
+}
+.agrandir:active{
+    background: #00f;
+}
+.fermer:active{
+    background: pink;
+}
+.reduir:active{
+    background: #00f;
+}

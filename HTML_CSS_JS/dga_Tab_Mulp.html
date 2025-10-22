@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Table de multiplication</title>
+<style type="text/css" media="all">
+    .res {
+        font-family: Times New Roman;
+        font-size: 30px;
+    }
+    body {
+        font-family: Times New Roman;
+        margin: 20px;
+    }
+    label {
+        font-size: 20px;
+
+    }
+    input {
+        font-family: Times New Roman;
+        font-size: 20px;
+        width: 60%;
+        border: solid;
+    }
+    button {
+        font-family: Times New Roman;
+        font-size: 25px;
+        width: 40%;
+        background-color: purple;
+        border: solid 4px black;
+        color: yellow;
+    }
+    .dres {
+        border: solid 5px blue;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: -10px 10px 5px;
+
+    }
+</style>
+</head>
+<body>
+<label for="nbr">Table de :   </label>
+<input type="number" placeholder="Nombre" id="nbr" />  <br><br>
+<button onclick="calcul()">Calculer</button><br><br>
+<div class="dres">
+
+<p id="res" class="res"></p>
+<p id="res1" class="res"></p>
+<p id="res2" class="res"></p>
+<p id="res3" class="res"></p>
+<p id="res4" class="res"></p>
+<p id="res5" class="res"></p>
+<p id="res6" class="res"></p>
+<p id="res7" class="res"></p>
+<p id="res8" class="res"></p>
+<p id="res9" class="res"></p>
+<p id="res10" class="res"></p>
+<p id="res11" class="res"></p>
+<p id="res12" class="res"></p>
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+function calcul() {
+
+let a = parseFloat(document.getElementById("nbr").value);
+const result = document.getElementById("res");
+const result1 = document.getElementById("res1");
+const result2 = document.getElementById("res2");
+const result3 = document.getElementById("res3");
+const result4 = document.getElementById("res4");
+const result5 = document.getElementById("res5");
+const result6 = document.getElementById("res6");
+const result7 = document.getElementById("res7");
+const result8 = document.getElementById("res8");
+const result9 = document.getElementById("res9");
+const result10 = document.getElementById("res10");
+const result11 = document.getElementById("res11");
+const result12 = document.getElementById("res12");
+
+i = [0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12];
+if (isNaN(a)) {
+result.textContent = `Entrée invalide !`;
+result1.textContent = ``;
+result2.textContent = ``;
+result3.textContent = ``;
+result4.textContent = ``;
+result5.textContent = ``;
+result6.textContent = ``;
+result7.textContent = ``;
+result8.textContent = ``;
+result9.textContent = ``;
+result10.textContent = ``;
+result11.textContent = ``;
+result12.textContent = ``;
+} else {
+
+result.textContent = `${a} × ${i[0]} = ${a*parseFloat(i[0])}`;
+result1.textContent = `${a} × ${i[1]} = ${a*parseFloat(i[1])}`;
+result2.textContent = `${a} × ${i[2]} = ${a*parseFloat(i[2])}`;
+result3.textContent = `${a} × ${i[3]} = ${a*parseFloat(i[3])}`;
+result4.textContent = `${a} × ${i[4]} = ${a*parseFloat(i[4])}`;
+result5.textContent = `${a} × ${i[5]} = ${a*parseFloat(i[5])}`;
+result6.textContent = `${a} × ${i[6]} = ${a*parseFloat(i[6])}`;
+result7.textContent = `${a} × ${i[7]} = ${a*parseFloat(i[7])}`;
+result8.textContent = `${a} × ${i[8]} = ${a*parseFloat(i[8])}`;
+result9.textContent = `${a} × ${i[9]} = ${a*parseFloat(i[9])}`;
+result10.textContent = `${a} × ${i[10]} = ${a*parseFloat(i[10])}`;
+result11.textContent = `${a} × ${i[11]} = ${a*parseFloat(i[11])}`;
+result12.textContent = `${a} × ${i[12]} = ${a*parseFloat(i[12])}`;
+}
+}
+</script>
+</body>
+</html>

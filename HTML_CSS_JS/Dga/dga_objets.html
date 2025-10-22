@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Plant d'apprentissage javascript</title>
+        
+    </head>
+    <body>
+<h1>Plant d'apprentissage javascript</h1>
+        
+<script type="text/javascript" charset="utf-8">
+/* I-) Les bases indispensables */
+     /* 1-) declaration et types de variables */
+     
+/* Exemple */
+var a=20;//nombre
+let b="Amour dga";//chaine de caracteres
+const c=true;//booleen
+let d;//undefined
+var e={nom:"amour dga",age:25};//Objet
+let f=new Array(10,67,56,89);//Tableau / array
+        
+console.log("a:"+typeof(a)+", b:"+typeof(b)+", c:"+typeof(c)+", d:"+typeof(d)+", e:"+typeof(e)+", f:"+typeof(f))
+        
+     
+     
+          /* --- Objet --- */
+           let personne={
+                nom:"amour dga",
+                age:25,
+                taille:160,//en cm
+                sexe:"masculin",
+            }
+            console.log(typeof(personne.age))
+            
+          /* --- Tableaux --- */ 
+           let table = ["amour",25,true]
+           console.log(table[1])
+           
+           let table2 = new Array("amour dga",1492,false)
+           console.log(table2[2])
+</script>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Compteur de caracteres</title>
+<style type="text/css" media="all">
+h1{
+    text-align: center;
+}
+
+</style>
+</head>
+<body>
+    <h1>Compteur De Caracteres</h1>
+    <label for="phrase">Tapez une phrase :</label>
+    <textarea name="phrase" id="phrase" rows="8" cols="30"></textarea>
+    <p>Nombre de Caracteres:  <span id="nombre"></span></p>
+   
+    <button onclick="Compteur()">Compter</button>
+<script type="text/javascript" charset="utf-8">
+function Compteur(){
+    let phrase = document.getElementById('phrase').value;
+    let nombre = phrase.length;
+    document.getElementById('nombre').textContent = nombre + " chars"
+}
+</script>
+</body>
+</html>

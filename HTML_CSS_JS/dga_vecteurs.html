@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Vecteurs </title>
+<style type="text/css" media="all">
+    * {
+        font-family: Times New Roman;
+    }
+    .vect {
+        display: flex;
+    }
+    input {
+        width: 10%;
+        text-align: center;
+        border: none;
+    }
+    h1 {
+        text-transform: uppercase;
+        text-align: center;
+        border: solid 3px;
+        padding: 5px 10px;
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 22px;
+        text-decoration: underline;
+    }
+    h3 {
+        text-decoration: underline;
+        margin-left: 20px;
+    }
+
+</style>
+</head>
+<body>
+<h1>Calcul vectoriel</h1>
+<h2>I- Calcul Vectoriel Dans IRxIR</h2>
+<div class="vect">
+<p>
+V1 <span>(</span> <input type="number" name="x1" id="x1" placeholder="x1" /> ;
+<input type="number" name="y1" id="y1" placeholder="y1" /> <span>)</span>
+</p>
+</div>
+<div class="vect">
+<p>
+V2 <span>(</span> <input type="number" name="x2" id="x2" placeholder="x2" />;
+<input type="number" name="y2" id="y2" placeholder="y2" /> <span>)</span>
+</p>
+</div>
+<h3>1- Somme Vectorielle</h3>
+<div class="btnsommev2">
+<button onclick="sommev2()">Claculer</button>
+<div class="svect">
+<p>
+V3 = V1 + V2 = <span> ( </span><span id="x3"> x </span> ; <span id="y3"> y </span><span> ) </span>
+</p>
+</div>
+</div>
+<h3>1- Produit Scalair</h3>
+<div class="produit_scal">
+<button onclick="produit()">Claculer</button><br /><br />
+<div class="produit" >
+ V1.V2 = <span id="produit">?</span>
+ <p id="ort"></p>
+</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+function sommev2() {
+let x1 = document.getElementById("x1").value;
+let y1 = document.getElementById("y1").value;
+let x2 = document.getElementById("x2").value;
+let y2 = document.getElementById("y2").value;
+let x3 = parseFloat(x1) + parseFloat(x2);
+let y3 = parseFloat(y1) + parseFloat(y2);
+let rx3 = document.getElementById("x3");
+let ry3 = document.getElementById("y3");
+
+if (x1 == "" || x2 == "" || y1 == "" || y2 == "") {
+rx3.textContent = "x";
+ry3.textContent = "y"
+} else {
+
+rx3.textContent = `${x3}`;
+
+ry3.textContent = `${y3}`;
+
+}
+}
+/*Produit Scalair de deux Vecteurs*/
+function produit(){
+    let x1 = document.getElementById("x1").value;
+let y1 = document.getElementById("y1").value;
+let x2 = document.getElementById("x2").value;
+let y2 = document.getElementById("y2").value;
+let produit_scal = x1*x2 + y1*y2;
+console.log(produit_scal)
+document.getElementById("produit").textContent = `${produit_scal}`
+if(produit_scal==0){
+    document.getElementById("ort").textContent="Vecteurs Orthogonaux"
+}else{
+    document.getElementById("ort").textContent=""
+}
+}
+</script>
+
+</body>
+</html>

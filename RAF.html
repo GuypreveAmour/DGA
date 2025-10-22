@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css" media="all">
+#box{
+    width: 100px;
+    height: 100px;
+    background-color: #0ef;
+}
+</style>
+</head>
+<body>
+<div id="box">
+
+</div>
+<script type="text/javascript" charset="utf-8">
+let x = 0;
+const box = document.getElementById("box");
+
+function moveBox() {
+x += 2; // déplacer de 2px
+box.style.left = x+"px";
+
+if (x < 300) {
+requestAnimationFrame(moveBox); // continuer l'animation
+}
+}
+moveBox()
+requestAnimationFrame(moveBox);
+</script>
+
+
+</body>
+</html>

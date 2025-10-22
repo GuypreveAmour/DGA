@@ -1,0 +1,14 @@
+<p id="text">Bonjour</p>
+<button onclick="changerLangue('en')">Anglais</button>
+<button onclick="changerLangue('fr')">Français</button>
+
+<script>
+const textes = {
+  fr: "Bonjour",
+  en: "Hello"
+};
+
+function changerLangue(langue) {
+  document.getElementById("text").innerText = textes[langue];
+}
+</script>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Date et Heure</title>
+  <style type="text/css" media="all">
+    #datetime{
+        border: solid 10px blue;
+        padding: 10px;
+        font-family: Times New Roman;
+        border-radius: 10px;
+        box-shadow: -10px 30px 20px;
+        text-align: center;
+        font-size: 40px;
+        
+    }  
+    h1{ text-decoration: underline 2px red;
+     text-shadow: 10px 10px 10px;  
+     font-size: 50px;
+     text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Date et Heure Actuelles</h1>
+  <p id="datetime"></p>
+
+  <script>
+    function afficherDateHeure() {
+      const maintenant = new Date();
+      const options = {
+        weekday: 'long', year: 'numeric', month: 'long',
+        day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit'
+      };
+      const dateHeure = maintenant.toLocaleString('fr-FR', options);
+      document.getElementById("datetime").textContent = dateHeure;
+    }
+
+    setInterval(afficherDateHeure, 1000);
+    afficherDateHeure();
+  </script>
+</body>
+</html>

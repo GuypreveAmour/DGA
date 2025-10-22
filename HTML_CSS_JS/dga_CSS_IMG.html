@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <style>
+  body{
+      font-family: Times New Roman;
+      font-size: 20px;
+      text-decoration: inherit;
+  }
+    .image-box {
+      width: 300px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .image-box img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      transition: transform 2.3s ease, filter 0.3s ease;
+    }
+
+    .image-box img:hover {
+      transform: rotateY(360deg);
+      filter: brightness(50%);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="image-box">
+    <h2>Ma super image</h2>
+    <img src="dga.jpg" alt="Image démo">
+  </div>
+
+</body>
+</html>

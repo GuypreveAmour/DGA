@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title></title>
+        
+    </head>
+    <body>
+        <input type="file" id="fileInput">
+
+<script>
+    let fichier;
+document.getElementById("fileInput").addEventListener("change", function(event) {
+    // Récupère le premier fichier choisi
+    fichier = event.target.files[0];
+
+    if (fichier) {
+        console.log("Nom :", fichier.name);        // Nom du fichier
+        console.log("Taille :", fichier.size, "octets"); // Taille en octets
+        console.log("Type :", fichier.type);       // Type MIME (ex: image/png, text/plain)
+        console.log("Dernière modification :", fichier.lastModifiedDate); // Date
+    }
+});
+const reader = new FileReader();
+
+reader.onload = function(e) {
+    console.log("Contenu du fichier :");
+    console.log(e.target.result);
+};
+
+reader.readAsText(fichier); // Lire comme texte
+</script>
+    </body>
+</html>

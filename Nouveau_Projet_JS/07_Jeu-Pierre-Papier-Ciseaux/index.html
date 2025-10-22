@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css" media="all">
+body{
+}
+    .display p {
+        border: 1px solid;
+        height: 40px;
+        align-content: center;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        border-radius: 10px;
+
+    }
+    .display {
+        border: 1px solid;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 50px 10px;
+    }
+    .reponses {
+        display: flex;
+        justify-content: space-around;
+        margin: 40px 10px;
+    }
+    .controls {
+        display: flex;
+        justify-content: space-around;
+    }
+    button {
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 200;
+        border-radius: 5px;
+    }
+    #pfc::after{
+        content: 'Pierre';
+        border: 1px solid ;
+        padding: 5px 20px;
+        border-radius: 20px;
+        animation: textChange 1s ease-in infinite alternate ;
+    }
+    #pfc{
+       display: none; 
+       text-align: center;
+       position: fixed;
+       left: 20px;
+       top: 50px;
+    }
+@keyframes textChange{
+    50%{
+        content: 'Ciseaux';
+    }
+    100%{
+        content: 'Feuille';
+    }
+}
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+<h1>Chifumi</h1>
+<p id="pfc"></p>
+<div class="display">
+<p>
+Ordi : <span id="reponse-o"></span>
+</p>
+<p>
+Jouer : <span id="reponse-j"></span>
+</p>
+</div>
+
+<div class="reponses">
+<button class="res">Pierre</button>
+<button class="res">Feuille</button>
+<button class="res">Ciseaux</button>
+</div>
+<div class="controls">
+<button onclick="Valider()">Vérifier</button>
+<button onclick="Jouer()">Jouer</button>
+</div>
+<p>Score : <span id="score">0</span></p>
+<div id="app">
+
+</div>
+<script type="text/javascript" charset="utf-8">
+const list = ['Pierre', 'Feuille', 'Ciseaux'];
+
+let ListRes = document.querySelectorAll('.res');
+ListRes.forEach(el => {
+el.addEventListener('click', ()=> {
+RJ.textContent = el.textContent;
+})
+
+})
+let RO = document.querySelector("#reponse-o")
+let RJ = document.querySelector("#reponse-j")
+let reponse_o;
+
+
+function Jouer() {
+reponse_o = list[Math.floor(Math.random()*list.length)];
+//console.log(reponse_o);
+RO.textContent = reponse_o;
+RO.style = 'color:transparent';
+pfc.style ="display:inline"
+}
+let score = 0;
+
+
+function Valider() {
+pfc.style ="display:none"
+if ((RO.textContent == 'Feuille' && RJ.textContent == 'Feuille') || (RO.textContent == 'Pierre' && RJ.textContent == 'Pierre') || (RO.textContent == 'Ciseaux' && RJ.textContent == 'Ciseaux')) {
+app.innerHTML = `<small>Egalité !</small>`
+
+}else {
+if ((RO.textContent == 'Feuille' && RJ.textContent == 'Ciseaux') || (RO.textContent == 'Pierre' && RJ.textContent == 'Feuille') || (RO.textContent == 'Ciseaux' && RJ.textContent == 'Pierre')) {
+app.innerHTML = `<small>Gagner !</small>`
+score++;
+document.querySelector('#score').innerHTML = `${score}`
+} else if ((RO.textContent == 'Feuille' && RJ.textContent == 'Pierre') || (RO.textContent == 'Pierre' && RJ.textContent == 'Ciseaux') || (RO.textContent == 'Ciseaux' && RJ.textContent == 'Feuille') || (RO.textContent && RJ.textContent == '')) {
+    app.innerHTML = `<small>Perdu !</small>`
+}else{
+    app.innerHTML = `<small>Vous n'avez Joué !</small>`
+}
+
+}
+RO.style = 'color:inerhit'
+return setTimeout(function vider(){
+    RO.textContent = " ";
+    RJ.textContent = " ";
+    app.innerHTML = ' '
+}, 1500)
+}
+
+
+</script>
+</body>
+</html>

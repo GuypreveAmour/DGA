@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Couleurs de paragrahe</title>
+        
+    </head>
+    <body>
+        <p class="p" id="p1">Voici mon premier paragraphe</p>
+        <p class="p" id="p2">En Voici mon deuxieme paragraphe</p>
+        <p class="p" id="p3">et en fin mon dernier paragraphe</p>
+        <button onclick="app()">click here</button>
+        
+<script type="text/javascript" charset="utf-8">
+        
+        function app() {
+            
+        
+        a=document.getElementById("p1");
+        a.innerText="Voici mon premier paragraphe qui a change de couleur et meme de contenue !";
+        a.style.color="blue";
+        b=a.innerText.length;
+        c=document.getElementById("p3");
+        c.textContent=`Il y'a ${b} caracter dans le premier paragraphe`
+        c.style.border="solid 4px red"
+        }
+</script>
+        
+    </body>
+</html>

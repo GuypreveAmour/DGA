@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>mini calculatrice </title>
+<style type="text/css" media="all">
+
+</style>
+</head>
+<body>
+<h1>Mini calculatrice</h1>
+<label for="nombre1">Nombre_1:</label>
+<input type="number" id="nombre1" placeholder="nombre 1" /><br /><br />
+<label for="nombre2">Nombre_2:</label>
+<input type="number" id="nombre2" placeholder="nombre 2" />
+<br /><br />
+<select name="opera" id="opera">
+<option value="">Oprateur</option>
+<option value="+">+</option>
+<option value="-">-</option>
+<option value="×">×</option>
+<option value="÷">÷</option>
+opt+
+</select>
+<button onclick="calculer()">Calculer</button>
+<br /><br />
+<span>Resultat : </san><span id="resultat"> . . . </span>
+<script type="text/javascript" charset="utf-8">
+function calculer() {
+let number1 = document.getElementById("nombre1").value;
+let number2 = document.getElementById("nombre2").value;
+let num1 = parseFloat(number1)
+let num2 = parseFloat(number2)
+let Opera = document.getElementById("opera").value;
+if(isNaN(num1) || isNaN(num2)){
+ resultat.textContent = `Entrée(s) Inbalide(s)`;   
+}else{
+if (Opera == "+") {
+const somme = num1 + num2;
+resultat.textContent = `${num1} + ${num2} = ${somme}`
+} else if (Opera == "-") {
+const diff = num1 - num2;
+resultat.textContent = `${num1} - ${num2} = ${diff}`
+} else if (Opera == "×") {
+const prod = num1 * num2;
+resultat.textContent = `${num1} × ${num2} = ${prod}`
+} else if (Opera == "÷") {
+if (num2 != 0) {
+const rap = num1 / num2;
+resultat.textContent = `${num1} ÷ ${num2} = ${rap}`
+} else {
+resultat.textContent = `Impossible Division Par Zero`;
+}
+
+} else {
+resultat.textContent = 'Operateur Invalid !'
+}}
+}
+</script>
+</body>
+</html>

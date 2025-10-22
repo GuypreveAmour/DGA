@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Table de multiplication</title>
+<style type="text/css" media="all">
+    .res {
+        font-family: Times New Roman;
+        font-size: 30px;
+    }
+    body {
+        font-family: Times New Roman;
+        margin: 20px;
+    }
+    label {
+        font-size: 20px;
+
+    }
+    input {
+        font-family: Times New Roman;
+        font-size: 20px;
+        width: 60%;
+        border: solid;
+        padding: 2px 5px;
+    }
+    button {
+        font-family: Times New Roman;
+        font-size: 25px;
+        width: 40%;
+        background-color: purple;
+        border: solid 4px black;
+        color: yellow;
+    }
+
+</style>
+</head>
+<body>
+<label for="nbr">Table de :   </label>
+<input type="number" placeholder="Multiplicateur" id="nbr" />  <br><br>
+<button onclick="calcul()">Calculer</button><br><br>
+<div id="dres" class="dres">
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+<p class="res"></p>
+</div>
+<script type="text/javascript" charset="utf-8">
+function calcul() {
+let result = document.getElementsByClassName("res");
+console.log(result.length);
+let multiplicateur = document.getElementById("nbr").value;
+for (var i = 0; i < result.length; i++) {
+result[i].innerText = `${multiplicateur} × ${i} = ${multiplicateur*i}`
+
+}
+document.getElementById("dres").style = `
+border: solid 5px blue ;
+padding:  20px;
+border-radius: 10px;
+box-shadow: -10px 10px 5px;
+`
+}
+</script>
+</body>
+</html>

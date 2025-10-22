@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mon premier Web Component</title>
+</head>
+<body>
+
+  <bonjour-moi></bonjour-moi>
+  
+
+  <script>
+    class BonjourMoi extends HTMLElement {
+      constructor() {
+        super();
+        let shadow = this.attachShadow({ mode: 'open' });
+
+        // Contenu HTML interne
+        shadow.innerHTML = `
+          <style>
+            p {
+              color: teal;
+              font-weight: bold;
+              font-family: sans-serif;
+            }
+          </style>
+          <p>Bonjour ! Je suis un Web Component ✅</p>
+        `;
+      }
+    }
+
+    // Déclarer le custom element
+    customElements.define('bonjour-moi', BonjourMoi);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+h1{
+    padding: 20px 0;
+    background: linear-gradient(80deg, #890,#180);
+    text-transform: uppercase;
+    color: aliceblue;
+    font-weight: bold;
+}
+p{
+    list-style: none;
+    font-size: 10px;
+    text-align: start;
+    border: 1px solid ;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    margin: 10px;
+}
+input{
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    
+}
+label{
+    font-size: 20px;
+    font-weight: 200;
+    margin: 5px;
+}
+.cond{
+   padding: 2px; 
+   margin: 0 5px;
+   border-radius: 500px;
+   border: 0.1px solid #000;
+   color: aliceblue;
+}

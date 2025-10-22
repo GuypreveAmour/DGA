@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Nombre Complexe</title>
+        <style type="text/css" media="all">
+         input{
+             border: solid 2px ;
+             width: 50%;
+             height: 30px;
+             border-radius: 5px;
+             text-align: center;
+             font-family: Times New Roman;
+         }   
+         body{
+             font-family: Times New Roman;
+             margin: 10px;
+         }
+         #trigo,#expo,#pol,#alg{
+             text-align: center;
+         }
+         .trigo,.expo,.pol,.alg{
+           text-align: center;
+           text-decoration: underline;
+         }
+         button{
+             border: solid 2px black;
+             background-color: blue;
+             color: white;
+             font-family: Times New Roman;
+             font-size: 15px;
+             border-radius: 3px;
+             
+             
+         }
+ #titre{
+      border: solid 5px blue;
+      border-radius: 10px;
+     text-align: center;
+      font-size: 25px;
+     font-family: Times New Roman;
+       box-shadow: 5px 10px 1px black;
+     color: red;
+     text-decoration: underline;
+     padding: 10px;
+         }
+        </style>
+        
+    </head>
+    <body>
+        <p id="titre">NOMBRES COMPLEXES</p>
+        <div class="">
+        <label for="a">Partie Réelle de Z</label><br>
+         <input type="number" placeholder=".............................." id="a"/><br><br>
+         <label for="b">Partie Imaginaire de Z</label><br>
+         <input type="number" placeholder=".............................." id="b" /> i<br>  <br>
+         </div>
+         <button onclick="mod_Arg()" class="modarg">Module et Argument de Z</button><br>
+         
+         
+        <p id="mod"></p>
+         <p id="arg"></p>
+        
+     <button onclick="forme()" class="forme">Differentes formes d'un nombre Complexe :</button>
+     <div>
+         <p class="alg">Forme Algebrique :</p>
+         <p id="alg">...............</p>
+     <p class="trigo">Forme Trigonometrique :</p>
+        <p id="trigo">................</p>
+        <p class="expo">Forme Exponentielle :</p>
+         <p id="expo">................</p>
+         <p class="pol">Forme Polaire :</p>
+         <p id="pol">..................</p>
+        </div>
+ 
+  <script type="text/javascript" charset="utf-8">
+        
+
+ function mod_Arg(){
+    let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+    const mod=(Math.sqrt((a*a)+(b*b)));
+const vmod = document.getElementById("mod");
+    const tetha = (Math.atan(b/a));
+const vtetha=document.getElementById("arg");
+
+    if(isNaN(a) || isNaN(b)){
+      vmod.textContent="Données Invalides !";
+     vtetha.textContent = "Données Invalides !";
+    }else{
+vmod.textContent = `mod(Z) = ${mod}`;
+vtetha.textContent = `Arg(Z) = ${tetha} [2pi]`;}
+}
+function forme(){
+     let a = parseFloat(document.getElementById("a").value);
+    let b = parseFloat(document.getElementById("b").value);
+        const mod=(Math.sqrt((a*a)+(b*b)));
+        const tetha = (Math.atan(b/a));
+        const alg = document.getElementById("alg");
+const trigo = document.getElementById("trigo");
+const expo=document.getElementById("expo");
+const pol=document.getElementById("pol");
+    
+    if(isNaN(a) || isNaN(b)){
+        
+alg.textContent="Données Invalides !";
+trigo.textContent = "Données Invalides !" ;
+expo.textContent = "Données Invalides !";
+pol.textContent = "Données Invalides !";
+
+    }else{
+alg.textContent=`Z = ${a} + (${b})i`;
+trigo.textContent = `Z = ${mod}(cos(${tetha}) + isin(${tetha}))`;
+expo.textContent = `Z = ${mod}Exp(i(${tetha}))`;
+pol.textContent = `Z = [${mod},${tetha}]`;}
+}
+            
+        </script>
+            </body>   
+  
+</html>

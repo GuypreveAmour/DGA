@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>`substitute(Filename('', 'Page Title'), '^.', '\u&', '')`</title>
+
+</head>
+<body>
+<label for="Verbe :">Verbe :</label>
+<input type="text" id="verb" />
+<button onclick="conjuguer()">conjuguer</button>
+<p id="result"></p>
+
+<p id="1"></p>
+<p id="2"></p>
+<p id="3"></p>
+<p id="4"></p>
+<p id="5"></p>
+<p id="6"></p>
+
+
+<script type="text/javascript" charset="utf-8">
+function conjuguer() {
+let verbe = document.getElementById("verb").value;
+const result = document.getElementById("result");
+let rad = verbe.replace((verbe.charAt(verbe.length-1)) (verbe.charAt(verbe.length-2)), "PP")
+
+console.log(rad)
+
+let termi = ["e",
+"es",
+"e",
+"ons",
+"ez",
+"ent"]
+for (let i in termi) {
+result.innerText = verbe+termi[i]
+}
+
+
+}
+</script>
+</body>
+</html>

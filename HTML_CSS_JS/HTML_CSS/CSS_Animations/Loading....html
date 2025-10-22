@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Exercices Animation CSS</title>
+<style type="text/css" media="all">
+
+body{
+justify-items: center;
+margin-top: 200px;
+font-family: Times New Roman;
+}
+.boule{
+    border: 1px solid white;
+    color: white;
+    width: 50px;
+    height: 50;
+    
+    border-radius: 50px;
+    border: dotted 20px;
+    animation: vv 1.99s linear infinite  ;
+    
+}  
+@keyframes vv{
+    to{
+        transform: rotate(360deg);
+        color: white;
+        
+    }
+}
+.container{
+    border: none;
+    padding: 30px 70px 10px 70px;
+    border-radius: 20px;
+    background-color: limegreen;
+    box-shadow: 10px 10px 30px;
+}
+.load{
+    font-weight: bold;
+}
+
+</style>
+        
+    </head>
+    <body>
+        <div class="container">
+           <div class="boule"></div>
+           <p class="load">Loading...</p>  
+        </div>
+
+        
+    </body>
+</html>

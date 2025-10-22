@@ -1,0 +1,2064 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Quiz sur les drapeau du monde </title>
+<!--Liens ver les fichiers externes: vue.js, jquery, js et css-->
+<link rel="stylesheet" href="css/style.css" />
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8">
+</script>
+<script src="js/vue.global.js" type="text/javascript" charset="utf-8">
+</script>
+<script src="js/script.js" type="text/javascript" charset="utf-8">
+</script>
+<!-- Fin des Liens-->
+</head>
+<!-- Le Corps de la page -->
+<body>
+<h1>Quiz Drapeaux</h1>
+<!-- Cette Div contiendra tout le code qui sera executé par Vue.js-->
+<div id="app">
+<input v-model="message" placeholder="Type Something here" /><br />
+<code>{{ message }}</code>
+</div>
+
+<!--Sections par Continent-->
+<div class="Sections">
+<button class="demarrer">START</button>
+</div>
+
+<!-- Page ou section de Jeu -->
+<div class="page-jeu">
+<div class="controls">
+<img class="reduir" src="image/fullscreenexit.png" alt="" />
+<img class="agrandir" src="image/fullscreen.png" alt="" />
+<img class="fermer" src="image/close.png" alt="" />
+</div>
+<hr />
+<span class="titre-page-jeu">A Quel Pays Appartient Ce Drapeau ?</span><br />
+<div class="sect-image-drapeau">
+<!--Affichage du drapeau-->
+<img id="image-drapeau" class="image-drapeau" src="" alt="Image-Drapeaux" />
+</div>
+<div class="nom-drapeau">
+<!--Boutons pour Valider le nom du pays auquel Appartient le drapeau -->
+<button class="btn-reponse"></button>
+<button class="btn-reponse"></button>
+<button class="btn-reponse"></button>
+</div>
+<div class="Valider">
+<button onclick="Suivant()">Passer</button>
+</div>
+<div class="score">
+<span>Score : </span><span id="score">0</span>
+</div>
+<div id="appreciate">
+    
+</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+
+
+/* Code Vue.js */
+const {
+createApp
+} = Vue;
+
+createApp( {
+data() {
+return {
+message: "Code Vue Will be Here !"
+}
+}
+}).mount("#app");
+
+</script>
+
+
+<!-- Code javascript Pour la liste des pays -->
+
+<script type="text/javascript" charset="utf-8">
+let countries = [{
+name: 'Afghanistan',
+capital: 'Kabul',
+languages: ['Pashto',
+'Uzbek',
+'Turkmen'],
+population: 27657145,
+flag: 'image/flag (62).png',
+currency: 'Afghan afghani'
+},
+{
+name: 'Christmas Island',
+capital: 'Flying Fish Cove',
+languages: ['English'],
+population: 2072,
+flag: 'image/flag (182).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Cocos Islands',
+capital: 'West Island',
+languages: ['English'],
+population: 550,
+flag: 'image/flag (183).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Cook Islands',
+capital: 'Avarua',
+languages: ['English'],
+population: 18100,
+flag: 'image/flag (194).png',
+currency: 'New Zealand dollar'
+},
+{
+name: 'Curaçao',
+capital: 'Willemstad',
+languages: ['Dutch',
+'(Eastern) Punjabi',
+'English'],
+population: 154843,
+flag: 'image/flag (193).png',
+currency: 'Netherlands Antillean guilder'
+},
+{
+name: "Åland Islands",
+capital: "Mariehamn",
+languages: [
+"Swedish"
+],
+population: 28875,
+flag: 'image/flag (214).png',
+region: "Europe",
+area: 1580
+},
+{
+name: 'Albania',
+capital: 'Tirana',
+languages: ['Albanian'],
+population: 2886026,
+flag: 'image/flag (61).png',
+currency: 'Albanian lek'
+},
+{
+name: 'Algeria',
+capital: 'Algiers',
+languages: ['Arabic'],
+population: 40400000,
+flag: 'image/flag (60).png',
+currency: 'Algerian dinar'
+},
+{
+name: 'American Samoa',
+capital: 'Pago Pago',
+languages: ['English',
+'Samoan'],
+population: 57100,
+flag: 'image/flag (217).png',
+currency: 'United State Dollar'
+},
+{
+name: 'Andorra',
+capital: 'Andorra la Vella',
+languages: ['Catalan'],
+population: 78014,
+flag: 'image/flag (59).png',
+currency: 'Euro'
+},
+{
+name: 'Antarctica',
+capital: '',
+languages: ['English',
+'Russian'],
+population: 1000,
+flag: 'image/flag (199).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Angola',
+capital: 'Luanda',
+languages: ['Portuguese'],
+population: 25868000,
+flag: 'image/flag (58).png',
+currency: 'Angolan kwanza'
+},
+{
+name: 'Anguilla',
+capital: 'The Valley',
+languages: ['English'],
+population: 13452,
+flag: 'image/flag (218).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Antigua and Barbuda',
+capital: "Saint John's",
+languages: ['English'],
+population: 86295,
+flag: 'image/flag (57).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Argentina',
+capital: 'Buenos Aires',
+languages: ['Spanish',
+'Guaraní'],
+population: 43590400,
+flag: 'image/flag (56).png',
+currency: 'Argentine peso'
+},
+{
+name: 'Armenia',
+capital: 'Yerevan',
+languages: ['Armenian',
+'Russian'],
+population: 2994400,
+flag: 'image/flag (55).png',
+currency: 'Armenian dram'
+},
+{
+name: 'Aruba',
+capital: 'Oranjestad',
+languages: ['Dutch',
+'(Eastern) Punjabi'],
+population: 107394,
+flag: 'image/flag (201).png',
+currency: 'Aruban florin'
+},
+{
+name: 'Australia',
+capital: 'Canberra',
+languages: ['English'],
+population: 24117360,
+flag: 'image/flag (54).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Austria',
+capital: 'Vienna',
+languages: ['German'],
+population: 8725931,
+flag: 'image/flag (154).png',
+currency: 'Euro'
+},
+{
+name: 'Azerbaijan',
+capital: 'Baku',
+languages: ['Azerbaijani'],
+population: 9730500,
+flag: 'image/flag (82).png',
+currency: 'Azerbaijani manat'
+},
+{
+name: 'Bahamas',
+capital: 'Nassau',
+languages: ['English'],
+population: 378040,
+flag: 'image/flag (81).png',
+currency: 'Bahamian dollar'
+},
+{
+name: 'Bahrain',
+capital: 'Manama',
+languages: ['Arabic'],
+population: 1404900,
+flag: 'image/flag (80).png',
+currency: 'Bahraini dinar'
+},
+{
+name: 'Bangladesh',
+capital: 'Dhaka',
+languages: ['Bengali'],
+population: 161006790,
+flag: 'image/flag (79).png',
+currency: 'Bangladeshi taka'
+},
+{
+name: 'Barbados',
+capital: 'Bridgetown',
+languages: ['English'],
+population: 285000,
+flag: 'image/flag (78).png',
+currency: 'Barbadian dollar'
+},
+{
+name: 'Belarus',
+capital: 'Minsk',
+languages: ['Belarusian',
+'Russian'],
+population: 9498700,
+flag: 'image/flag (77).png',
+currency: 'New Belarusian ruble'
+},
+{
+name: 'Belgium',
+capital: 'Brussels',
+languages: ['Dutch',
+'French',
+'German'],
+population: 11319511,
+flag: 'image/flag (76).png',
+currency: 'Euro'
+},
+{
+name: 'Belize',
+capital: 'Belmopan',
+languages: ['English',
+'Spanish'],
+population: 370300,
+flag: 'image/flag (75).png',
+currency: 'Belize dollar'
+},
+{
+name: 'Benin',
+capital: 'Porto-Novo',
+languages: ['French'],
+population: 10653654,
+flag: 'image/flag (74).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Bermuda',
+capital: 'Hamilton',
+languages: ['English'],
+population: 61954,
+flag: 'image/flag (219).png',
+currency: 'Bermudian dollar'
+},
+{
+name: 'Bhutan',
+capital: 'Thimphu',
+languages: ['Dzongkha'],
+population: 775620,
+flag: 'image/flag (73).png',
+currency: 'Bhutanese ngultrum'
+},
+{
+name: 'Bolivia (Plurinational State of)',
+capital: 'Sucre',
+languages: ['Spanish',
+'Aymara',
+'Quechua'],
+population: 10985059,
+flag: 'image/flag (72).png',
+currency: 'Bolivian boliviano'
+},
+{
+name: 'Bosnia and Herzegovina',
+capital: 'Sarajevo',
+languages: ['Bosnian',
+'Croatian',
+'Serbian'],
+population: 3531159,
+flag: 'image/flag (71).png',
+currency: 'Bosnia and Herzegovina convertible mark'
+},
+{
+name: 'Botswana',
+capital: 'Gaborone',
+languages: ['English',
+'Tswana'],
+population: 2141206,
+flag: 'image/flag (70).png',
+currency: 'Botswana pula'
+},
+{
+name: 'Brazil',
+capital: 'Brasília',
+languages: ['Portuguese'],
+population: 206135893,
+flag: 'image/flag (69).png',
+currency: 'Brazilian real'
+},
+{
+name: 'British Indian Ocean Territory',
+capital: 'Diego Garcia',
+languages: ['English'],
+population: 3000,
+flag: 'image/flag (196).png',
+currency: 'United States dollar'
+},
+{
+name: 'Virgin Islands (British)',
+capital: 'Road Town',
+languages: ['English'],
+population: 28514,
+flag: 'image/flag (197).png',
+currency: '[D]'
+},
+{
+name: 'Virgin Islands (U.S.)',
+capital: 'Charlotte Amalie',
+languages: ['English'],
+population: 114743,
+flag: 'image/flag (198).png',
+currency: 'United States dollar'
+},
+{
+name: 'Brunei Darussalam',
+capital: 'Bandar Seri Begawan',
+languages: ['Malay'],
+population: 411900,
+flag: 'image/flag (68).png',
+currency: 'Brunei dollar'
+},
+{
+name: 'Bulgaria',
+capital: 'Sofia',
+languages: ['Bulgarian'],
+population: 7153784,
+flag: 'image/flag (67).png',
+currency: 'Bulgarian lev'
+},
+{
+name: 'Burkina Faso',
+capital: 'Ouagadougou',
+languages: ['French',
+'Fula'],
+population: 19034397,
+flag: 'image/flag (66).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Burundi',
+capital: 'Bujumbura',
+languages: ['French',
+'Kirundi'],
+population: 10114505,
+flag: 'image/flag (65).png',
+currency: 'Burundian franc'
+},
+{
+name: 'Cambodia',
+capital: 'Phnom Penh',
+languages: ['Khmer'],
+population: 15626444,
+flag: 'image/flag (64).png',
+currency: 'Cambodian riel'
+},
+{
+name: 'Cameroon',
+capital: 'Yaoundé',
+languages: ['English',
+'French'],
+population: 22709892,
+flag: 'image/flag (63).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Canada',
+capital: 'Ottawa',
+languages: ['English',
+'French'],
+population: 36155487,
+flag: 'image/flag (102).png',
+currency: 'Canadian dollar'
+},
+{
+name: 'Cabo Verde',
+capital: 'Praia',
+languages: ['Portuguese'],
+population: 531239,
+flag: 'image/flag (101).png',
+currency: 'Cape Verdean escudo'
+},
+{
+name: 'Cayman Islands',
+capital: 'George Town',
+languages: ['English'],
+population: 58238,
+flag: 'image/flag (220).png',
+currency: 'Cayman Islands dollar'
+},
+{
+name: 'Central African Republic',
+capital: 'Bangui',
+languages: ['French',
+'Sango'],
+population: 4998000,
+flag: 'image/flag (100).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Chad',
+capital: "N'Djamena",
+languages: ['French',
+'Arabic'],
+population: 14497000,
+flag: 'image/flag (99).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Chile',
+capital: 'Santiago',
+languages: ['Spanish'],
+population: 18191900,
+flag: 'image/flag (98).png',
+currency: 'Chilean peso'
+},
+{
+name: 'China',
+capital: 'Beijing',
+languages: ['Chinese'],
+population: 1377422166,
+flag: 'image/flag (97).png',
+currency: 'Chinese yuan'
+},
+{
+name: 'Colombia',
+capital: 'Bogotá',
+languages: ['Spanish'],
+population: 48759958,
+flag: 'image/flag (96).png',
+currency: 'Colombian peso'
+},
+{
+name: 'Comoros',
+capital: 'Moroni',
+languages: ['Arabic',
+'French'],
+population: 806153,
+flag: 'image/flag (95).png',
+currency: 'Comorian franc'
+},
+{
+name: 'Congo',
+capital: 'Brazzaville',
+languages: ['French',
+'Lingala'],
+population: 4741000,
+flag: 'image/flag (94).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Congo (Democratic Republic of the)',
+capital: 'Kinshasa',
+languages: ['French',
+'Lingala',
+'Kongo',
+'Swahili',
+'Luba-Katanga'],
+population: 85026000,
+flag: 'image/flag (93).png',
+currency: 'Congolese franc'
+},
+{
+name: 'Costa Rica',
+capital: 'San José',
+languages: ['Spanish'],
+population: 4890379,
+flag: 'image/flag (92).png',
+currency: 'Costa Rican colón'
+},
+{
+name: 'Croatia',
+capital: 'Zagreb',
+languages: ['Croatian'],
+population: 4190669,
+flag: 'image/flag (91).png',
+currency: 'Croatian kuna'
+},
+{
+name: 'Cuba',
+capital: 'Havana',
+languages: ['Spanish'],
+population: 11239004,
+flag: 'image/flag (90).png',
+currency: 'Cuban convertible peso'
+},
+{
+name: 'Cyprus',
+capital: 'Nicosia',
+languages: ['Greek (modern)',
+'Turkish',
+'Armenian'],
+population: 847000,
+flag: 'image/flag (89).png',
+currency: 'Euro'
+},
+{
+name: 'Czech Republic',
+capital: 'Prague',
+languages: ['Czech',
+'Slovak'],
+population: 10558524,
+flag: 'image/flag (88).png',
+currency: 'Czech koruna'
+},
+{
+name: 'Denmark',
+capital: 'Copenhagen',
+languages: ['Danish'],
+population: 5717014,
+flag: 'image/flag (87).png',
+currency: 'Danish krone'
+},
+{
+name: 'Djibouti',
+capital: 'Djibouti',
+languages: ['French',
+'Arabic'],
+population: 900000,
+flag: 'image/flag (86).png',
+currency: 'Djiboutian franc'
+},
+{
+name: 'Dominica',
+capital: 'Roseau',
+languages: ['English'],
+population: 71293,
+flag: 'image/flag (85).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Dominican Republic',
+capital: 'Santo Domingo',
+languages: ['Spanish'],
+population: 10075045,
+flag: 'image/flag (84).png',
+currency: 'Dominican peso'
+},
+{
+name: 'Ecuador',
+capital: 'Quito',
+languages: ['Spanish'],
+population: 16545799,
+flag: 'image/flag (103).png',
+currency: 'United States dollar'
+},
+{
+name: 'Egypt',
+capital: 'Cairo',
+languages: ['Arabic'],
+population: 91290000,
+flag: 'image/flag (122).png',
+currency: 'Egyptian pound'
+},
+{
+name: 'El Salvador',
+capital: 'San Salvador',
+languages: ['Spanish'],
+population: 6520675,
+flag: 'image/flag (121).png',
+currency: 'United States dollar'
+},
+{
+name: 'Equatorial Guinea',
+capital: 'Malabo',
+languages: ['Spanish',
+'French'],
+population: 1222442,
+flag: 'image/flag (120).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Eritrea',
+capital: 'Asmara',
+languages: ['Tigrinya',
+'Arabic',
+'English'],
+population: 5352000,
+flag: 'image/flag (119).png',
+currency: 'Eritrean nakfa'
+},
+{
+name: 'Estonia',
+capital: 'Tallinn',
+languages: ['Estonian'],
+population: 1315944,
+flag: 'image/flag (118).png',
+currency: 'Euro'
+},
+{
+name: 'Ethiopia',
+capital: 'Addis Ababa',
+languages: ['Amharic'],
+population: 92206005,
+flag: 'image/flag (117).png',
+currency: 'Ethiopian birr'
+},
+{
+name: 'Faroe Islands',
+capital: 'Tórshavn',
+languages: ['Faroese'],
+population: 49376,
+flag: 'image/flag (191).png',
+currency: 'Danish krone'
+},
+{
+name: 'Fiji',
+capital: 'Suva',
+languages: ['English',
+'Fijian',
+'Hindi',
+'Urdu'],
+population: 867000,
+flag: 'image/flag (115).png',
+currency: 'Fijian dollar'
+},
+{
+name: 'Finland',
+capital: 'Helsinki',
+languages: ['Finnish',
+'Swedish'],
+population: 5491817,
+flag: 'image/flag (114).png',
+currency: 'Euro'
+},
+{
+name: 'France',
+capital: 'Paris',
+languages: ['French'],
+population: 66710000,
+flag: 'image/flag (113).png',
+currency: 'Euro'
+},
+{
+name: 'French Guiana',
+capital: 'Cayenne',
+languages: ['French'],
+population: 254541,
+flag: 'image/flag (221).png',
+currency: 'Euro'
+},
+{
+name: 'French Polynesia',
+capital: 'Papeetē',
+languages: ['French'],
+population: 271800,
+flag: 'image/flag (222).png',
+currency: 'CFP franc'
+},
+{
+name: 'Gabon',
+capital: 'Libreville',
+languages: ['French'],
+population: 1802278,
+flag: 'image/flag (112).png',
+currency: 'Central African CFA franc'
+},
+{
+name: 'Gambia',
+capital: 'Banjul',
+languages: ['English'],
+population: 1882450,
+flag: 'image/flag (111).png',
+currency: 'Gambian dalasi'
+},
+{
+name: 'Georgia',
+capital: 'Tbilisi',
+languages: ['Georgian'],
+population: 3720400,
+flag: 'image/flag (110).png',
+currency: 'Georgian Lari'
+},
+{
+name: 'Germany',
+capital: 'Berlin',
+languages: ['German'],
+population: 81770900,
+flag: 'image/flag (109).png',
+currency: 'Euro'
+},
+{
+name: 'Ghana',
+capital: 'Accra',
+languages: ['English'],
+population: 27670174,
+flag: 'image/flag (108).png',
+currency: 'Ghanaian cedi'
+},
+{
+name: 'Gibraltar',
+capital: 'Gibraltar',
+languages: ['English'],
+population: 33140,
+flag: 'image/flag (200).png',
+currency: 'Gibraltar pound'
+},
+{
+name: 'Greece',
+capital: 'Athens',
+languages: ['Greek (modern)'],
+population: 10858018,
+flag: 'image/flag (107).png',
+currency: 'Euro'
+},
+{
+name: 'Greenland',
+capital: 'Nuuk',
+languages: ['Kalaallisut'],
+population: 55847,
+flag: 'image/flag (195).png',
+currency: 'Danish krone'
+},
+{
+name: 'Grenada',
+capital: "St. George's",
+languages: ['English'],
+population: 103328,
+flag: 'image/flag (106).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Guadeloupe',
+capital: 'Basse-Terre',
+languages: ['French'],
+population: 400132,
+flag: 'image/flag (211).png',
+currency: 'Euro'
+},
+{
+name: 'Guam',
+capital: 'Hagåtña',
+languages: ['English',
+'Chamorro',
+'Spanish'],
+population: 184200,
+flag: 'image/flag (212).png',
+currency: 'United States dollar'
+},
+{
+name: 'Guatemala',
+capital: 'Guatemala City',
+languages: ['Spanish'],
+population: 16176133,
+flag: 'image/flag (105).png',
+currency: 'Guatemalan quetzal'
+},
+{
+name: 'Guinea',
+capital: 'Conakry',
+languages: ['French',
+'Fula'],
+population: 12947000,
+flag: 'image/flag (104).png',
+currency: 'Guinean franc'
+},
+{
+name: 'Guinea-Bissau',
+capital: 'Bissau',
+languages: ['Portuguese'],
+population: 1547777,
+flag: 'image/flag (142).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Guyana',
+capital: 'Georgetown',
+languages: ['English'],
+population: 746900,
+flag: 'image/flag (141).png',
+currency: 'Guyanese dollar'
+},
+{
+name: 'Haiti',
+capital: 'Port-au-Prince',
+languages: ['French',
+'Haitian'],
+population: 11078033,
+flag: 'image/flag (140).png',
+currency: 'Haitian gourde'
+},
+{
+name: 'Honduras',
+capital: 'Tegucigalpa',
+languages: ['Spanish'],
+population: 8576532,
+flag: 'image/flag (139).png',
+currency: 'Honduran lempira'
+},
+{
+name: 'Hungary',
+capital: 'Budapest',
+languages: ['Hungarian'],
+population: 9823000,
+flag: 'image/flag (138).png',
+currency: 'Hungarian forint'
+},
+{
+name: 'Iceland',
+capital: 'Reykjavík',
+languages: ['Icelandic'],
+population: 334300,
+flag: 'image/flag (137).png',
+currency: 'Icelandic króna'
+},
+{
+name: 'India',
+capital: 'New Delhi',
+languages: ['Hindi',
+'English'],
+population: 1295210000,
+flag: 'image/flag (136).png',
+currency: 'Indian rupee'
+},
+{
+name: 'Indonesia',
+capital: 'Jakarta',
+languages: ['Indonesian'],
+population: 258705000,
+flag: 'image/flag (135).png',
+currency: 'Indonesian rupiah'
+},
+{
+name: "Côte d'Ivoire",
+capital: 'Yamoussoukro',
+languages: ['French'],
+population: 22671331,
+flag: 'image/flag (129).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Iran',
+capital: 'Tehran',
+languages: ['Persian (Farsi)'],
+population: 79369900,
+flag: 'image/flag (134).png',
+currency: 'Iranian rial'
+},
+{
+name: 'Iraq',
+capital: 'Baghdad',
+languages: ['Arabic',
+'Kurdish'],
+population: 37883543,
+flag: 'image/flag (133).png',
+currency: 'Iraqi dinar'
+},
+{
+name: 'Ireland',
+capital: 'Dublin',
+languages: ['Irish',
+'English'],
+population: 6378000,
+flag: 'image/flag (132).png',
+currency: 'Euro'
+},
+{
+name: 'Israel',
+capital: 'Jerusalem',
+languages: ['Hebrew (modern)',
+'Arabic'],
+population: 8527400,
+flag: 'image/flag (131).png',
+currency: 'Israeli new shekel'
+},
+{
+name: 'Italy',
+capital: 'Rome',
+languages: ['Italian'],
+population: 60665551,
+flag: 'image/flag (130).png',
+currency: 'Euro'
+},
+{
+name: 'Jamaica',
+capital: 'Kingston',
+languages: ['English'],
+population: 2723246,
+flag: 'image/flag (128).png',
+currency: 'Jamaican dollar'
+},
+{
+name: 'Japan',
+capital: 'Tokyo',
+languages: ['Japanese'],
+population: 126960000,
+flag: 'image/flag (127).png',
+currency: 'Japanese yen'
+},
+{
+name: 'Jordan',
+capital: 'Amman',
+languages: ['Arabic'],
+population: 9531712,
+flag: 'image/flag (126).png',
+currency: 'Jordanian dinar'
+},
+{
+name: 'Kazakhstan',
+capital: 'Astana',
+languages: ['Kazakh',
+'Russian'],
+population: 17753200,
+flag: 'image/flag (125).png',
+currency: 'Kazakhstani tenge'
+},
+{
+name: 'Kenya',
+capital: 'Nairobi',
+languages: ['English',
+'Swahili'],
+population: 47251000,
+flag: 'image/flag (124).png',
+currency: 'Kenyan shilling'
+},
+{
+name: 'Kiribati',
+capital: 'South Tarawa',
+languages: ['English'],
+population: 113400,
+flag: 'image/flag (123).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Kuwait',
+capital: 'Kuwait City',
+languages: ['Arabic'],
+population: 4183658,
+flag: 'image/flag (160).png',
+currency: 'Kuwaiti dinar'
+},
+{
+name: 'Kyrgyzstan',
+capital: 'Bishkek',
+languages: ['Kyrgyz',
+'Russian'],
+population: 6047800,
+flag: 'image/flag (159).png',
+currency: 'Kyrgyzstani som'
+},
+{
+name: "Lao (D.R)",
+capital: 'Vientiane',
+languages: ['Lao'],
+population: 6492400,
+flag: 'image/flag (158).png',
+currency: 'Lao kip'
+},
+{
+name: 'Latvia',
+capital: 'Riga',
+languages: ['Latvian'],
+population: 1961600,
+flag: 'image/flag (157).png',
+currency: 'Euro'
+},
+{
+name: 'Lebanon',
+capital: 'Beirut',
+languages: ['Arabic',
+'French'],
+population: 5988000,
+flag: 'image/flag (156).png',
+currency: 'Lebanese pound'
+},
+{
+name: 'Lesotho',
+capital: 'Maseru',
+languages: ['English',
+'Southern Sotho'],
+population: 1894194,
+flag: 'image/flag (155).png',
+currency: 'Lesotho loti'
+},
+{
+name: 'Liberia',
+capital: 'Monrovia',
+languages: ['English'],
+population: 4615000,
+flag: 'image/flag (153).png',
+currency: 'Liberian dollar'
+},
+{
+name: 'Libya',
+capital: 'Tripoli',
+languages: ['Arabic'],
+population: 6385000,
+flag: 'image/flag (152).png',
+currency: 'Libyan dinar'
+},
+{
+name: 'Liechtenstein',
+capital: 'Vaduz',
+languages: ['German'],
+population: 37623,
+flag: 'image/flag (151).png',
+currency: 'Swiss franc'
+},
+{
+name: 'Lithuania',
+capital: 'Vilnius',
+languages: ['Lithuanian'],
+population: 2872294,
+flag: 'image/flag (150).png',
+currency: 'Euro'
+},
+{
+name: 'Luxembourg',
+capital: 'Luxembourg',
+languages: ['French',
+'German',
+'Luxembourgish'],
+population: 576200,
+flag: 'image/flag (140).png',
+currency: 'Euro'
+},
+{
+name: 'Macedonia',
+capital: 'Skopje',
+languages: ['Macedonian'],
+population: 2058539,
+flag: 'image/flag (148).png',
+currency: 'Macedonian denar'
+},
+{
+name: 'Madagascar',
+capital: 'Antananarivo',
+languages: ['French',
+'Malagasy'],
+population: 22434363,
+flag: 'image/flag (147).png',
+currency: 'Malagasy ariary'
+},
+{
+name: 'Malawi',
+capital: 'Lilongwe',
+languages: ['English',
+'Chichewa'],
+population: 16832910,
+flag: 'image/flag (146).png',
+currency: 'Malawian kwacha'
+},
+{
+name: 'Malaysia',
+capital: 'Kuala Lumpur',
+languages: ['Malaysian'],
+population: 31405416,
+flag: 'image/flag (145).png',
+currency: 'Malaysian ringgit'
+},
+{
+name: 'Maldives',
+capital: 'Malé',
+languages: ['Divehi'],
+population: 344023,
+flag: 'image/flag (144).png',
+currency: 'Maldivian rufiyaa'
+},
+{
+name: 'Mali',
+capital: 'Bamako',
+languages: ['French'],
+population: 18135000,
+flag: 'image/flag (143).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Malta',
+capital: 'Valletta',
+languages: ['Maltese',
+'English'],
+population: 425384,
+flag: 'image/flag (9).png',
+currency: 'Euro'
+},
+{
+name: 'Marshall Islands',
+capital: 'Majuro',
+languages: ['English',
+'Marshallese'],
+population: 54880,
+flag: 'image/flag (8).png',
+currency: 'United States dollar'
+},
+{
+name: 'Martinique',
+capital: 'Fort-de-France',
+languages: ['French'],
+population: 378243,
+flag: 'image/flag (223).png',
+currency: 'Euro'
+},
+{
+name: 'Mauritania',
+capital: 'Nouakchott',
+languages: ['Arabic'],
+population: 3718678,
+flag: 'image/flag (7).png',
+currency: 'Mauritanian ouguiya'
+},
+{
+name: 'Mauritius',
+capital: 'Port Louis',
+languages: ['English'],
+population: 1262879,
+flag: 'image/flag (6).png',
+currency: 'Mauritian rupee'
+},
+{
+name: 'Mayotte',
+capital: 'Mamoudzou',
+languages: ['French'],
+population: 226915,
+flag: 'image/flag (215).png',
+currency: 'Euro'
+},
+{
+name: 'Mexico',
+capital: 'Mexico City',
+languages: ['Spanish'],
+population: 122273473,
+flag: 'image/flag (5).png',
+currency: 'Mexican peso'
+},
+{
+name: 'Micronesia',
+capital: 'Palikir',
+languages: ['English'],
+population: 102800,
+flag: 'image/flag (116).png',
+currency: '[D]'
+},
+{
+name: 'Moldova',
+capital: 'Chișinău',
+languages: ['Romanian'],
+population: 3553100,
+flag: 'image/flag (4).png',
+currency: 'Moldovan leu'
+},
+{
+name: 'Monaco',
+capital: 'Monaco',
+languages: ['French'],
+population: 38400,
+flag: 'image/flag (3).png',
+currency: 'Euro'
+},
+{
+name: 'Mongolia',
+capital: 'Ulan Bator',
+languages: ['Mongolian'],
+population: 3093100,
+flag: 'image/flag (2).png',
+currency: 'Mongolian tögrög'
+},
+{
+name: 'Montenegro',
+capital: 'Podgorica',
+languages: ['Serbian',
+'Bosnian',
+'Albanian',
+'Croatian'],
+population: 621810,
+flag: 'image/flag (1).png',
+currency: 'Euro'
+},
+{
+name: 'Montserrat',
+capital: 'Plymouth',
+languages: ['English'],
+population: 4922,
+flag: 'image/flag (192).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Morocco',
+capital: 'Rabat',
+languages: ['Arabic'],
+population: 33337529,
+flag: 'image/flag (174).png',
+currency: 'Moroccan dirham'
+},
+{
+name: 'Mozambique',
+capital: 'Maputo',
+languages: ['Portuguese'],
+population: 26423700,
+flag: 'image/flag (173).png',
+currency: 'Mozambican metical'
+},
+{
+name: 'Myanmar',
+capital: 'Naypyidaw',
+languages: ['Burmese'],
+population: 51419420,
+flag: 'image/flag (172).png',
+currency: 'Burmese kyat'
+},
+{
+name: 'Namibia',
+capital: 'Windhoek',
+languages: ['English',
+'Afrikaans'],
+population: 2324388,
+flag: 'image/flag (171).png',
+currency: 'Namibian dollar'
+},
+{
+name: 'Nauru',
+capital: 'Yaren',
+languages: ['English',
+'Nauruan'],
+population: 10084,
+flag: 'image/flag (170).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Nepal',
+capital: 'Kathmandu',
+languages: ['Nepali'],
+population: 28431500,
+flag: 'image/flag (169).png',
+currency: 'Nepalese rupee'
+},
+{
+name: 'Netherlands',
+capital: 'Amsterdam',
+languages: ['Dutch'],
+population: 17019800,
+flag: 'image/flag (168).png',
+currency: 'Euro'
+},
+{
+name: 'New Caledonia',
+capital: 'Nouméa',
+languages: ['French'],
+population: 268767,
+flag: 'image/flag (210).png',
+currency: 'CFP franc'
+},
+{
+name: 'New Zealand',
+capital: 'Wellington',
+languages: ['English',
+'Māori'],
+population: 4697854,
+flag: 'image/flag (167).png',
+currency: 'New Zealand dollar'
+},
+{
+name: 'Nicaragua',
+capital: 'Managua',
+languages: ['Spanish'],
+population: 6262703,
+flag: 'image/flag (166).png',
+currency: 'Nicaraguan córdoba'
+},
+{
+name: 'Niger',
+capital: 'Niamey',
+languages: ['French'],
+population: 20715000,
+flag: 'image/flag (165).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Nigeria',
+capital: 'Abuja',
+languages: ['English'],
+population: 186988000,
+flag: 'image/flag (164).png',
+currency: 'Nigerian naira'
+},
+{
+name: 'Niue',
+capital: 'Alofi',
+languages: ['English'],
+population: 1470,
+flag: 'image/flag (29).png',
+currency: 'New Zealand dollar'
+},
+{
+name: "North Korea",
+capital: 'Pyongyang',
+languages: ['Korean'],
+population: 25281000,
+flag: 'image/flag (163).png',
+currency: 'North Korean won'
+},
+{
+name: 'Northern Mariana Islands',
+capital: 'Saipan',
+languages: ['English',
+'Chamorro'],
+population: 56940,
+flag: 'image/flag (213).png',
+currency: 'United States dollar'
+},
+{
+name: 'Norway',
+capital: 'Oslo',
+languages: ['Norwegian',
+'Norwegian Bokmål',
+'Norwegian Nynorsk'],
+population: 5223256,
+flag: 'image/flag (28).png',
+currency: 'Norwegian krone'
+},
+{
+name: 'Oman',
+capital: 'Muscat',
+languages: ['Arabic'],
+population: 4420133,
+flag: 'image/flag (27).png',
+currency: 'Omani rial'
+},
+{
+name: 'Pakistan',
+capital: 'Islamabad',
+languages: ['English',
+'Urdu'],
+population: 194125062,
+flag: 'image/flag (26).png',
+currency: 'Pakistani rupee'
+},
+{
+name: 'Palau',
+capital: 'Ngerulmud',
+languages: ['English'],
+population: 17950,
+flag: 'image/flag (25).png',
+currency: '[E]'
+},
+{
+name: 'Palestine',
+capital: 'Ramallah',
+languages: ['Arabic'],
+population: 4682467,
+flag: 'image/flag (203).png',
+currency: 'Israeli new sheqel'
+},
+{
+name: 'Panama',
+capital: 'Panama City',
+languages: ['Spanish'],
+population: 3814672,
+flag: 'image/flag (24).png',
+currency: 'Panamanian balboa'
+},
+{
+name: 'Papua New Guinea',
+capital: 'Port Moresby',
+languages: ['English'],
+population: 8083700,
+flag: 'image/flag (23).png',
+currency: 'Papua New Guinean kina'
+},
+{
+name: 'Paraguay',
+capital: 'Asunción',
+languages: ['Spanish',
+'Guaraní'],
+population: 6854536,
+flag: 'image/flag (22).png',
+currency: 'Paraguayan guaraní'
+},
+{
+name: 'Peru',
+capital: 'Lima',
+languages: ['Spanish'],
+population: 31488700,
+flag: 'image/flag (21).png',
+currency: 'Peruvian sol'
+},
+{
+name: 'Philippines',
+capital: 'Manila',
+languages: ['English'],
+population: 103279800,
+flag: 'image/flag (20).png',
+currency: 'Philippine peso'
+},
+{
+name: 'Poland',
+capital: 'Warsaw',
+languages: ['Polish'],
+population: 38437239,
+flag: 'image/flag (19).png',
+currency: 'Polish zloty'
+},
+{
+name: 'Portugal',
+capital: 'Lisbon',
+languages: ['Portuguese'],
+population: 10374822,
+flag: 'image/flag (18).png',
+currency: 'Euro'
+},
+{
+name: 'Puerto Rico',
+capital: 'San Juan',
+languages: ['Spanish',
+'English'],
+population: 3474182,
+flag: 'image/flag (216).png',
+currency: 'United States dollar'
+},
+{
+name: 'Qatar',
+capital: 'Doha',
+languages: ['Arabic'],
+population: 2587564,
+flag: 'image/flag (17).png',
+currency: 'Qatari riyal'
+},
+{
+name: 'Republic of Kosovo',
+capital: 'Pristina',
+languages: ['Albanian',
+'Serbian'],
+population: 1733842,
+flag: 'image/flag (161).png',
+currency: 'Euro'
+},
+{
+name: 'Romania',
+capital: 'Bucharest',
+languages: ['Romanian'],
+population: 19861408,
+flag: 'image/flag (16).png',
+currency: 'Romanian leu'
+},
+{
+name: 'Russian',
+capital: 'Moscow',
+languages: ['Russian'],
+population: 146599183,
+flag: 'image/flag (15).png',
+currency: 'Russian ruble'
+},
+{
+name: 'Rwanda',
+capital: 'Kigali',
+languages: ['Kinyarwanda',
+'English',
+'French'],
+population: 11553188,
+flag: 'image/flag (14).png',
+currency: 'Rwandan franc'
+},
+{
+name: 'Saint Kitts and Nevis',
+capital: 'Basseterre',
+languages: ['English'],
+population: 46204,
+flag: 'image/flag (13).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Saint-Lucies ',
+capital: 'Castries',
+languages: ['English'],
+population: 96204,
+flag: 'image/flag (12).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Saint Vincent and the Grenadines',
+capital: 'Kingstown',
+languages: ['English'],
+population: 109991,
+flag: 'image/flag (11).png',
+currency: 'East Caribbean dollar'
+},
+{
+name: 'Samoa',
+capital: 'Apia',
+languages: ['Samoan',
+'English'],
+population: 194899,
+flag: 'image/flag (10).png',
+currency: 'Samoan tālā'
+},
+{
+name: 'San Marino',
+capital: 'City of San Marino',
+languages: ['Italian'],
+population: 33005,
+flag: 'image/flag (49).png',
+currency: 'Euro'
+},
+{
+name: 'Sao Tome and Principe',
+capital: 'São Tomé',
+languages: ['Portuguese'],
+population: 187356,
+flag: 'image/flag (48).png',
+currency: 'São Tomé and Príncipe dobra'
+},
+{
+name: 'Saudi Arabia',
+capital: 'Riyadh',
+languages: ['Arabic'],
+population: 32248200,
+flag: 'image/flag (47).png',
+currency: 'Saudi riyal'
+},
+{
+name: 'Senegal',
+capital: 'Dakar',
+languages: ['French'],
+population: 14799859,
+flag: 'image/flag (46).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Serbia',
+capital: 'Belgrade',
+languages: ['Serbian'],
+population: 7076372,
+flag: 'image/flag (45).png',
+currency: 'Serbian dinar'
+},
+{
+name: 'Seychelles',
+capital: 'Victoria',
+languages: ['French',
+'English'],
+population: 91400,
+flag: 'image/flag (44).png',
+currency: 'Seychellois rupee'
+},
+{
+name: 'Sierra Leone',
+capital: 'Freetown',
+languages: ['English'],
+population: 7075641,
+flag: 'image/flag (43).png',
+currency: 'Sierra Leonean leone'
+},
+{
+name: 'Singapore',
+capital: 'Singapore',
+languages: ['English',
+'Malay',
+'Tamil',
+'Chinese'],
+population: 5535000,
+flag: 'image/flag (42).png',
+currency: 'Brunei dollar'
+},
+{
+name: 'Slovakia',
+capital: 'Bratislava',
+languages: ['Slovak'],
+population: 5426252,
+flag: 'image/flag (41).png',
+currency: 'Euro'
+},
+{
+name: 'Slovenia',
+capital: 'Ljubljana',
+languages: ['Slovene'],
+population: 2064188,
+flag: 'image/flag (40).png',
+currency: 'Euro'
+},
+{
+name: 'Solomon Islands',
+capital: 'Honiara',
+languages: ['English'],
+population: 642000,
+flag: 'image/flag (39).png',
+currency: 'Solomon Islands dollar'
+},
+{
+name: 'Somalia',
+capital: 'Mogadishu',
+languages: ['Somali',
+'Arabic'],
+population: 11079000,
+flag: 'image/flag (38).png',
+currency: 'Somali shilling'
+},
+{
+name: 'South Africa',
+capital: 'Pretoria',
+languages: [
+'Afrikaans',
+'English',
+'Southern Ndebele',
+'Southern Sotho',
+'Swati',
+'Tswana',
+'Tsonga',
+'Venda',
+'Xhosa',
+'Zulu'
+],
+population: 55653654,
+flag: 'image/flag (37).png',
+currency: 'South African rand'
+},
+{
+name: 'South Korea',
+capital: 'Seoul',
+languages: ['Korean'],
+population: 50801405,
+flag: 'image/flag (162).png',
+currency: 'South Korean won'
+},
+{
+name: 'South Sudan',
+capital: 'Juba',
+languages: ['English'],
+population: 12131000,
+flag: 'image/flag (36).png',
+currency: 'South Sudanese pound'
+},
+{
+name: 'Spain',
+capital: 'Madrid',
+languages: ['Spanish'],
+population: 46438422,
+flag: 'image/flag (35).png',
+currency: 'Euro'
+},
+{
+name: 'Sri Lanka',
+capital: 'Colombo',
+languages: ['Sinhalese',
+'Tamil'],
+population: 20966000,
+flag: 'image/flag (34).png',
+currency: 'Sri Lankan rupee'
+},
+{
+name: 'Sudan',
+capital: 'Khartoum',
+languages: ['Arabic',
+'English'],
+population: 39598700,
+flag: 'image/flag (33).png',
+currency: 'Sudanese pound'
+},
+{
+name: 'Suriname',
+capital: 'Paramaribo',
+languages: ['Dutch'],
+population: 541638,
+flag: 'image/flag (32).png',
+currency: 'Surinamese dollar'
+},
+{
+name: 'Swaziland',
+capital: 'Lobamba',
+languages: ['English',
+'Swati'],
+population: 1132657,
+flag: 'image/flag (31).png',
+currency: 'Swazi lilangeni'
+},
+{
+name: 'Sweden',
+capital: 'Stockholm',
+languages: ['Swedish'],
+population: 9894888,
+flag: 'image/flag (30).png',
+currency: 'Swedish krona'
+},
+{
+name: 'Switzerland',
+capital: 'Bern',
+languages: ['German',
+'French',
+'Italian'],
+population: 8341600,
+flag: 'image/flag (190).png',
+currency: 'Swiss franc'
+},
+{
+name: 'Syrian',
+capital: 'Damascus',
+languages: ['Arabic'],
+population: 18564000,
+flag: 'image/flag (189).png',
+currency: 'Syrian pound'
+},
+{
+name: 'Taiwan',
+capital: 'Taipei',
+languages: ['Chinese'],
+population: 23503349,
+flag: 'image/flag (188).png',
+currency: 'New Taiwan dollar'
+},
+{
+name: 'Tajikistan',
+capital: 'Dushanbe',
+languages: ['Tajik',
+'Russian'],
+population: 8593600,
+flag: 'image/flag (187).png',
+currency: 'Tajikistani somoni'
+},
+{
+name: 'Tanzania',
+capital: 'Dodoma',
+languages: ['Swahili',
+'English'],
+population: 55155000,
+flag: 'image/flag (186).png',
+currency: 'Tanzanian shilling'
+},
+{
+name: 'Thailand',
+capital: 'Bangkok',
+languages: ['Thai'],
+population: 65327652,
+flag: 'image/flag (185).png',
+currency: 'Thai baht'
+},
+{
+name: 'Timor-Leste',
+capital: 'Dili',
+languages: ['Portuguese'],
+population: 1167242,
+flag: 'image/flag (83).png',
+currency: 'United States dollar'
+},
+{
+name: 'Togo',
+capital: 'Lomé',
+languages: ['French'],
+population: 7143000,
+flag: 'image/flag (184).png',
+currency: 'West African CFA franc'
+},
+{
+name: 'Tonga',
+capital: "Nuku'alofa",
+languages: ['English',
+'Tonga (Tonga Islands)'],
+population: 103252,
+flag: 'image/flag (224).png',
+currency: 'Tongan paʻanga'
+},
+{
+name: 'Trinidad and Tobago',
+capital: 'Port of Spain',
+languages: ['English'],
+population: 1349667,
+flag: 'image/flag (182).png',
+currency: 'Trinidad and Tobago dollar'
+},
+{
+name: 'Tunisia',
+capital: 'Tunis',
+languages: ['Arabic'],
+population: 11154400,
+flag: 'image/flag (181).png',
+currency: 'Tunisian dinar'
+},
+{
+name: 'Turkey',
+capital: 'Ankara',
+languages: ['Turkish'],
+population: 78741053,
+flag: 'image/flag (180).png',
+currency: 'Turkish lira'
+},
+{
+name: 'Turkmenistan',
+capital: 'Ashgabat',
+languages: ['Turkmen',
+'Russian'],
+population: 4751120,
+flag: 'image/flag (179).png',
+currency: 'Turkmenistan manat'
+},
+{
+name: 'Tuvalu',
+capital: 'Funafuti',
+languages: ['English'],
+population: 10640,
+flag: 'image/flag (178).png',
+currency: 'Australian dollar'
+},
+{
+name: 'Uganda',
+capital: 'Kampala',
+languages: ['English',
+'Swahili'],
+population: 33860700,
+flag: 'image/flag (177).png',
+currency: 'Ugandan shilling'
+},
+{
+name: 'Ukraine',
+capital: 'Kiev',
+languages: ['Ukrainian'],
+population: 42692393,
+flag: 'image/flag (176).png',
+currency: 'Ukrainian hryvnia'
+},
+{
+name: 'United Arab Emirates',
+capital: 'Abu Dhabi',
+languages: ['Arabic'],
+population: 9856000,
+flag: 'image/flag (175).png',
+currency: 'United Arab Emirates dirham'
+},
+{
+name: 'United Kingdom',
+capital: 'London',
+languages: ['English'],
+population: 65110000,
+flag: 'image/flag (53).png',
+currency: 'British pound'
+},
+{
+name: 'United States of America',
+capital: 'Washington, D.C.',
+languages: ['English'],
+population: 323947000,
+flag: 'image/flag (52).png',
+currency: 'United States dollar'
+},
+{
+name: 'Uruguay',
+capital: 'Montevideo',
+languages: ['Spanish'],
+population: 3480222,
+flag: 'image/flag (51).png',
+currency: 'Uruguayan peso'
+},
+{
+name: 'Uzbekistan',
+capital: 'Tashkent',
+languages: ['Uzbek',
+'Russian'],
+population: 31576400,
+flag: 'image/flag (50).png',
+currency: "Uzbekistani so'm"
+},
+{
+name: 'Vanuatu',
+capital: 'Port Vila',
+languages: ['Bislama',
+'English',
+'French'],
+population: 277500,
+flag: 'image/flag (202).png',
+currency: 'Vanuatu vatu'
+},
+{
+name: 'Venezuela',
+capital: 'Caracas',
+languages: ['Spanish'],
+population: 31028700,
+flag: 'image/flag (208).png',
+currency: 'Venezuelan bolívar'
+},
+{
+name: 'Viet Nam',
+capital: 'Hanoi',
+languages: ['Vietnamese'],
+population: 92700000,
+flag: 'image/flag (207).png',
+currency: 'Vietnamese đồng'
+},
+{
+name: 'Western Sahara',
+capital: 'El Aaiún',
+languages: ['Spanish'],
+population: 510713,
+flag: 'image/flag (209).png',
+currency: 'Moroccan dirham'
+},
+{
+name: 'Yemen',
+capital: "Sana'a",
+languages: ['Arabic'],
+population: 27478000,
+flag: 'image/flag (206).png',
+currency: 'Yemeni rial'
+},
+{
+name: 'Zambia',
+capital: 'Lusaka',
+languages: ['English'],
+population: 15933883,
+flag: 'image/flag (205).png',
+currency: 'Zambian kwacha'
+},
+{
+name: 'Zimbabwe',
+capital: 'Harare',
+languages: ['English',
+'Shona',
+'Northern Ndebele'],
+population: 14240168,
+flag: 'image/flag (204).png',
+currency: 'Botswana pula'
+}];
+
+let Disp_Ans = document.querySelectorAll('.btn-reponse');
+let TrueName;
+function Suivant() {
+let img = document.getElementById('image-drapeau');
+console.log(img.src);
+pays = countries[Math.floor(Math.random()*countries.length)];
+console.log(pays.flag);
+console.log(pays.name);
+img.src= pays.flag;
+
+TrueName = pays.name;
+let Name2 = countries[Math.floor(Math.random()*countries.length)].name;
+if(Name2 === TrueName){
+    Name2 = countries[Math.floor(Math.random()*countries.length)].name;
+}
+let Name3 = countries[Math.floor(Math.random()*countries.length)].name;
+if(Name3 === TrueName){
+    Name3 = countries[Math.floor(Math.random()*countries.length)].name;
+}
+//console.log(TrueName, Name3, Name2)
+let List_Ans = [TrueName, Name2, Name3];
+//Melanger les reponses
+let LiAsMe = List_Ans.sort();
+//Renverser les reponses
+let LiAsMeRev = LiAsMe.reverse()
+console.log(List_Ans);
+console.log(LiAsMe);
+
+for(var i=0; i<List_Ans.length;i++){
+    Disp_Ans[i].textContent = LiAsMeRev[i];// Recuperer les reponses et les afficher
+}
+}
+Suivant();
+//Initialiser le Quiz.
+let score = 0;
+Disp_Ans.forEach((el) => {
+el.addEventListener('click', ()=>{
+       if (el.textContent === TrueName){
+      console.log("Bravo bonne reponse");
+document.getElementById('appreciate').textContent = 'Bravo Bonne Reponse !';
+appreciate.style.display = 'inline'
+appreciate.style.background = 'blue'
+setTimeout(()=>{
+         document.getElementById('appreciate').textContent = '';
+         
+appreciate.style.display = 'none';
+appreciate.style.background = 'blue'
+},1000)
+      score++;
+      console.log(score)
+document.getElementById("score").textContent = score;
+      Suivant();
+  }else{
+     console.log("Bad reponse");
+     document.getElementById('appreciate').textContent = 'Domage Mauvaise Reponse !';
+appreciate.style.display = 'inline';
+appreciate.style.background = 'red'
+setTimeout(()=>{
+         document.getElementById('appreciate').textContent = '';
+         appreciate.style.display = 'none'
+    appreciate.style.background = 'red'
+    
+},1000)
+     console.log(score);
+     document.getElementById("score").textContent = score;
+     Suivant();
+  } 
+    })
+  
+})
+</script>
+</body>
+</html>

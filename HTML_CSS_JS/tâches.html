@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ma To-Do List améliorée</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 8px; margin: 5px 0; }
+    ul { margin-top: 10px; }
+    li { margin-bottom: 6px; }
+    .supprimer { margin-left: 10px; color: red; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>To-Do List avec suppression + sauvegarde</h2>
+
+  <input type="text" id="tacheInput" placeholder="Écris une tâche ici" />
+  <button onclick="ajouterTache()">Ajouter</button>
+
+  <ul id="listeTaches"></ul>
+
+  <script>
+    // Charger les tâches sauvegardées s'il y en a
+    let taches = JSON.parse(localStorage.getItem("taches")) || [];
+
+    // Fonction pour ajouter une tâche
+    function ajouterTache() {
+      let input = document.getElementById("tacheInput");
+      let valeur = input.value.trim();
+
+      if (valeur !== "") {
+        taches.push(valeur);
+        enregistrerTaches();
+        afficherTaches();
+        input.value = "";
+      }
+    }
+
+    // Fonction pour afficher les tâches
+    function afficherTaches() {
+      let ul = document.getElementById("listeTaches");
+      ul.innerHTML = "";
+
+      taches.forEach(function(tache, index) {
+        let li = document.createElement("li");
+        li.textContent = (index + 1) + ". " + tache;
+
+        // Bouton supprimer
+        let btn = document.createElement("span");
+        btn.textContent = "Supprimer";
+        btn.className = "supprimer";
+        btn.onclick = function() {
+          supprimerTache(index);
+        };
+
+        li.appendChild(btn);
+        ul.appendChild(li);
+      });
+    }
+
+    // Fonction pour supprimer une tâche
+    function supprimerTache(index) {
+      taches.splice(index, 1);           // Supprime 1 élément à la position index
+      enregistrerTaches();               // Met à jour le stockage
+      afficherTaches();                  // Met à jour l'affichage
+    }
+
+    // Sauvegarder les tâches dans le stockage du navigateur
+    function enregistrerTaches() {
+      localStorage.setItem("taches", JSON.stringify(taches));
+    }
+
+    // Affichage initial au chargement
+    afficherTaches();
+  </script>
+
+</body>
+</html>

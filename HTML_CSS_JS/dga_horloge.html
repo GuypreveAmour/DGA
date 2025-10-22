@@ -1,0 +1,10 @@
+
+<h1>HORLOGE</h1>
+<p id="horloge"></p>
+
+<script>
+  setInterval(() => {
+    const maintenant = new Date();
+    document.getElementById("horloge").textContent = maintenant.toLocaleTimeString();
+  }, 1000);
+</script>

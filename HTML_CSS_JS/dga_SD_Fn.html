@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Resolution d'une equation du second degre</title>
+        <style type="text/css" media="all">
+         h1{
+             border: solid 4px blue;
+             text-align: center;
+            border-radius: 10px;
+            box-shadow: 10px 10px 10px;
+             text-decoration: underline 2px;
+         }   
+        </style>
+        
+    </head>
+    <body>
+       
+<h1>Equation du second degre</h1>
+
+<script type="text/javascript" charset="utf-8">
+  function SD(a,b,c){
+      let D,x0,x1,x2;
+      D = b*b-4*a*c
+      x0=(-b)/(2*a)
+      x1=((-b)-(D)**(1/2))/(2*a)
+      x2=((-b)-(D)**(1/2))/(2*a)
+      document.write(" a = ",a,";  b = ",b," ; c = ",c ,"  ")
+      document.write(" ===> D = ",D)
+      if(D<0){document.write(" : pas de solution reel. Donc  S = { } " )}
+      else if(D==0){document.write(" : solution double note x0 telle que : x0 = ", x0)
+          
+      }else{document.write(" : Deux solutions reels x1 et x2 telles que x1 = ",x1, " et x2 = ",x2,"  Alors S = { ",x1," ; ",x2," } ")}
+      
+      
+  } SD(parseInt(prompt("a")),parseInt(prompt("b")),parseInt(prompt("c"))) 
+</script> 
+    </body>
+</html>
+

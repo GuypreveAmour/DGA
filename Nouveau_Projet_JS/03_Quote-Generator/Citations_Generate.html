@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Generateurs des citations Aleatoires</title>
+<style type="text/css" media="all">
+    
+    body{
+        padding: 0;
+        margin: 0;
+        /*background-image: url('image/dga8.jpg');*/
+    }
+    h1 {
+        background: -webkit-radial-gradient(circle, red,blue,#aff);
+        padding: 10px;
+        text-align: center;
+        font-size: 50px;
+        color: aquamarine;
+        box-shadow: 0px 0px 10px #00f;
+        border-radius: 20px;
+        margin: 10px;
+        font-weight: 200;
+    }
+    .generate {
+        width: 100px;
+        height: 35px;
+        margin-inline: 30px;
+        border: 1px solid #00f;
+        font-size: 20px;
+        font-weight: bolder;
+        background-color: #ddf;
+        border-radius: 5px;
+        box-shadow: 0px 3px 0px 1px #55f;
+        font-weight: 200;
+    }
+    .generate:active {
+        transform: translateY(3.5px);
+        box-shadow: 0px 0px 3px;
+    }
+    #citation{
+        background-color: rgba(0,0,0,0.5);
+        padding: 10px;
+        margin: 5px;
+        border-radius: 10px;
+        font-weight: 300;
+        color: #fff;
+    }
+</style>
+<script src="dico_Quotes.js" type="text/javascript" charset="utf-8">
+</script>
+</head>
+<body>
+<h1>Quotes Generator</h1>
+
+<button class="generate" onclick="generate()">Suivant</button>
+<br /><br />
+<div id="citation" class="citation"></div>
+<br />
+<!-- <div class="search">
+<input type="text" name="search" id="search" placeholder="Nom de l'Auteur (ex:Voltair)"/>
+<button onclick="rechercher()">
+    Search
+</button>
+</div>
+<div class="resultSeach">
+ <h3 id="titreRS"></h3>
+ <p id="contRS"></p>
+</div> -->
+<script type="text/javascript" charset="utf-8">
+function generate() {
+for (var i = 0; i < dico.length; i++) {
+//console.log(dico[i])
+let quote = dico[Math.floor(Math.random()*dico.length)]
+document.querySelector("#citation").innerHTML = `<p>${quote.citation}</p><p><u><strong>${quote.auteur}</strong> <small>(<i>${quote.ouvrage}</i>)</small></u></p>`
+}
+let bgimg = images[Math.floor(Math.random()*images.length)]
+console.log(bgimg)
+document.body.style=`background-image:url('${bgimg}'); background-attachement:fixed; background-repeat: no-repeat; background-size:200% 100%; background-position:center center`;
+}generate()
+
+
+</script>
+</body>
+</html>

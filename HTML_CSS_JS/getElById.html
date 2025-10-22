@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>dga</title>
+        
+    </head>
+    <body>
+        <p id="mp"> Mon paragraphe</p>
+           <p id="mp1"> Mon paragraphe 1</p>
+<input type="number" id="num"/>
+
+<input type="text"  id="txt" />
+        
+        
+        
+        <script type="text/javascript" charset="utf-8">
+       //premier exemple de document.getElementById()
+       
+        let a=document.getElementById("mp");
+        function cl(){
+           a.style.color="red"
+        }cl();
+        
+         // deuxieme exemple de document.getElementById()
+       document.getElementById("mp1").style.color="blue"
+
+
+let mpl = document.getElementById("num").value
+const ad=mpl+(Math.sqrt(mpl))
+document.write(ad,"   ")
+
+
+//troisieme exemple sur document.getElementById
+
+function table(){
+    let p = document.getElementById("txt").value
+    for(m=0;m<=12;m++){
+        let mul = p*m;
+        document.write(mul)
+    }return;
+    
+}
+
+
+
+        </script>
+        
+                
+    </body>
+</html>

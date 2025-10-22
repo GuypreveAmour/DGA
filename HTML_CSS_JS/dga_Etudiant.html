@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title> </title>
+        
+    </head>
+    <body>
+        <script type="text/javascript" charset="utf-8">
+            class Etudiant {
+  constructor(nom, moyenne) {
+    this.nom = nom;
+    this.moyenne = moyenne;
+  }
+
+  static meilleurEtudiant(etudiants) {
+    return etudiants.reduce((meilleur, actuel) =>
+      (actuel.moyenne > meilleur.moyenne ? actuel : meilleur)
+    );
+  }
+}
+
+let e1 = new Etudiant("Ali", 15);
+let e2 = new Etudiant("Sarah", 18);
+let e3 = new Etudiant("David", 12);
+
+const top = Etudiant.meilleurEtudiant([e1, e2, e3]);
+console.log(`Le meilleur est ${top.nom} avec une moyenne de ${top.moyenne}`);
+        </script>
+    </body>
+</html>

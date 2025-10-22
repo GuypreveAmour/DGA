@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>demo animation css</title>
+<style type="text/css" media="all">
+*{
+    font-family: Times New Roman;
+}
+ body{
+     background-color: none;
+     background-image: url('bg7.jpg');
+ }
+ .container{
+     background-color: rgba(259,150,250,0.3);
+     border-top: solid 10px hotpink;
+     border-left: solid 10px hotpink;
+     border-right: solid 10px purple;
+     border-bottom: solid 10px purple;
+     padding: 10px;
+     padding-top: 1px;
+     border-radius: 30px 0;
+ }
+ .form{
+     font-size: 20px;
+ }
+ h2{
+     text-align: center;
+     font-size: 40px;
+ }
+label{
+    font-weight: 600;
+}
+ input{
+     float: right;
+     height: 30px;
+     padding: 0 5px;
+     border-radius: 5px;
+ }
+
+ button{
+     width: 90px;
+     border: 2px solid purple;
+     height: 30px;
+     font-size: 20px;
+     font-weight: bold;
+     text-align: center;
+     border-radius: 5px;
+     background-color: violet;
+     box-shadow: 0px 0px 10px 5px;
+ }
+ button:hover{
+     
+     animation: slide 1s linear;
+ }
+ @keyframes slide{
+     0%{background-color:white; }
+     100%{ background-color:lime; }
+ }
+ h4{
+     float: right;
+     position: relative;
+     top: -20px;
+ }
+ h4 a{
+     text-decoration: underline 0.3px;
+     font-weight: 1;
+     color: violet;
+     text-shadow: 1px 1px 2px rgba(0,0,0,1);
+ }
+ .baner{
+     border: 4px solid rgba(250,150,250,0.5) ;
+     background-color: #ededed;
+     padding: 0px 10px;
+     border-radius: 10px;
+     background-image: url('bg3.jpg');
+     
+ }
+ .barnav{
+     background-color: rgba(250,150,250,0.5);
+     padding: 1px;
+     border-radius: 20px 20px 0 0;
+ }
+ .barnav ul{
+     display: flex;
+     list-style: none;
+     position: relative;
+     left: -20px;
+     border: none;
+     justify-content: space-between ;
+     
+     
+ }
+ ul li{
+     border: blue solid  ;
+     border-radius: 2.5px;
+     padding: 2px 5px;
+     background-color: skyblue;
+ }
+ ul li:hover{
+     background-color: blue;
+     color: white;
+     box-shadow: 1px 1px 10px 5px rgba(0,0,250,0.5);
+ }
+ .titre{
+     color: #fefefe;
+     font-size: 50px;
+     
+     
+ }
+
+</style> 
+    </head>
+    <body>
+<div class="baner">
+    <h1 class="titre">DGACOM</h1>
+ <nav class="barnav">
+   <ul class="liste">
+     <li>Home</li>
+     <li>Help</li>
+     <li>contacts</li>
+     <li>about us</li>
+   </ul>
+ </nav>           
+</div>
+<br><br><br>
+      <div class="container">
+          <h2>Login</h2>
+          <div class="form">
+         <label for="user name">Name :</label>
+          <input type="text" id="name" placeholder="User Name" required />
+          <br>          <br>
+          <label for="email">Email :</label>
+          <input type="text" placeholder="Email" id="email" required/>
+          <br>          <br>
+          <label for="password">PassWord :</label>
+          <input type="password" id="password" placeholder="Pass Word" required />
+          <br>          <br>          <br>
+          <button type="submit">submit</button>
+          <h4><a href="#">create account</a></h4>
+              
+          </div>
+          
+      </div>  
+    </body>
+</html>

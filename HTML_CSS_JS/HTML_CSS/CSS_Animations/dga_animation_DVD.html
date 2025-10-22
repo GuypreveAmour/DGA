@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>galerie css</title>
+<style type="text/css" media="all">
+.content{
+    border: 1px solid ;
+    width: 340px;
+    height: 300px;
+    overflow: hidden;
+    background-color: #111;
+    border-radius: 5px;
+}
+.boule{
+    text-align: center;
+    text-decoration: underline 5px;
+    font-family: Times New Roman;
+    border: none;
+    border-radius: 50%;
+    background-color: red;
+    width: 100px;
+    height: 30px;
+    animation: anim 20s linear infinite alternate;
+}
+
+@keyframes anim {
+    0%{
+      transform: translate(-50px,-50px);  
+    }
+    10%{
+        transform: translate(240px, 100px);
+        background-color: blue;
+    }
+    20%{
+     transform: translate(100px, 270px);
+     background-color: purple;
+    }
+    30%{
+        transform: translate(0px, 180px);
+        background-color: hotpink;
+    }
+    40%{
+        transform: translate(70px, 0px);
+        background-color:green ;
+    }
+    50%{
+        transform: translate(240px, 70px);
+        background-color: darkblue;
+    }
+    60%{
+        transform: translate(150px, 270px);
+        background-color:lime ;
+    }
+    70%{
+     transform: translate(0px, 100px); 
+     background-color: indigo;
+    }
+    80%{
+        transform: translate(100px, 0px);
+        background-color: darkred;
+    }
+    90%{
+        transform: translate(240px, 90px);
+        background-color: greenyellow;
+    }
+    100%{
+        transform: translate(200px, 270px);
+        background-color:violet ;
+    }
+    
+}
+</style>
+        
+    </head>
+<body>
+    
+    <div class="content">
+      <div class="boule">
+        DVD  
+      </div>  
+    </div>
+
+</body>
+</html>

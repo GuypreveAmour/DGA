@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Liste de Tâches</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 8px; margin: 5px 0; }
+    ul { margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>Ma To-Do List</h2>
+
+  <input type="text" id="tacheInput" placeholder="Écris une tâche ici" />
+  <button onclick="ajouterTache()">Ajouter</button>
+
+  <ul id="listeTaches"></ul>
+
+  <script>
+    // Tableau vide pour stocker les tâches
+    let taches = [];
+
+    // Fonction qui ajoute une tâche au tableau et l'affiche
+    function ajouterTache() {
+      let input = document.getElementById("tacheInput");
+      let valeur = input.value.trim();
+
+      if (valeur !== "") {
+        taches.push(valeur); // On ajoute la tâche au tableau
+        afficherTaches();    // On met à jour l'affichage
+        input.value = "";    // On vide le champ
+      }
+    }
+
+    // Fonction pour afficher toutes les tâches dans la page
+    function afficherTaches() {
+      let ul = document.getElementById("listeTaches");
+      ul.innerHTML = ""; // On vide la liste d'abord
+
+      taches.forEach(function(tache, index) {
+        let li = document.createElement("li");
+        li.textContent = (index + 1) + ". " + tache;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+
+</body>
+</html>

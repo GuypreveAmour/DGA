@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation CSS</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: crimson;
+      position: relative;
+      animation: slide 2s infinite linear alternate;
+    }
+
+    @keyframes slide{
+      from {
+        left: 0;
+        background-color: crimson;
+      }
+      to {
+        left: 230px;
+        background-color: darkblue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

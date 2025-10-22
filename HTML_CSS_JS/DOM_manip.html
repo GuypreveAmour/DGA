@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Démo des méthodes get...</title>
+  <style>
+    .rouge { color: red; }
+    .bleu { color: blue; }
+  </style>
+</head>
+<body>
+
+  <h1 id="titre">Bienvenue sur la démo</h1>
+
+  <p class="paragraphe">Paragraphe 1</p>
+  <p class="paragraphe">Paragraphe 2</p>
+  <p class="paragraphe">Paragraphe 3</p>
+
+  <button class="btn">Changer le titre</button>
+  <button id="changerCouleur">Colorier tous les paragraphes</button>
+  <button onclick="compterParagraphes()">Combien de paragraphes ?</button>
+
+  <script>
+    // getElementById
+    let titre = document.getElementById("titre");
+
+    // getElementsByClassName
+    let paragraphes = document.getElementsByClassName("paragraphe");
+
+    // getElementsByTagName
+    let boutons = document.getElementsByTagName("button");
+
+    // querySelector
+    let btnChangerTitre = document.querySelector(".btn");
+
+    // querySelectorAll
+    let tousLesParagraphes = document.querySelectorAll(".paragraphe");
+
+    // Événement sur le bouton qui change le titre
+    btnChangerTitre.onclick = function() {
+      titre.innerText = "Titre modifié par getElementById !";
+      titre.style.color = "green";
+    };
+
+    // Événement pour changer la couleur de tous les paragraphes
+    document.getElementById("changerCouleur").onclick = function() {
+      tousLesParagraphes.forEach(function(p) {
+        p.classList.toggle("bleu");
+      });
+    };
+
+    // Exemple avec getElementsByTagName
+    function compterParagraphes() {
+      alert("Il y a " + paragraphes.length + " paragraphes.");
+    }
+  </script>
+
+</body>
+</html>

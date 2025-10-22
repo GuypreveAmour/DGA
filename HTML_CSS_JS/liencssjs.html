@@ -1,0 +1,30 @@
+<a href="#" class="lien-anim" onclick="animer(this)">Clique-moi</a>
+
+<style>
+.lien-anim {
+  display: inline-block;
+  padding: 10px;
+  background: lightgreen;
+  text-decoration: none;
+  transition: transform 0.5s;
+}
+
+.lien-anim.active {
+  animation: tourner 1s ease-out;
+}
+
+@keyframes tourner {
+  0%   { transform: rotate(0deg); }
+  50%  { transform: rotate(15deg); }
+  100% { transform: rotate(0deg); }
+}
+</style>
+
+<script>
+  function animer(element) {
+    element.classList.add("active");
+    setTimeout(() => {
+      element.classList.remove("active");
+    }, 1000); // durée de l'animation
+  }
+</script>
