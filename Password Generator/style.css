@@ -1,0 +1,161 @@
+body {
+    font-size: 3em;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    margin: 0 ;
+    background: linear-gradient(50deg, #f00, #900);
+    padding: 20px;
+    font-size: 3em;
+    color: aliceblue;
+    text-align: start;
+    position: fixed;
+    top: 0;
+}
+.icon{
+    background: linear-gradient(45deg, #908, #900);
+    width: 3em;
+    height: 3em;
+    align-items: center;
+    align-content: center;
+    border-radius: 100%;
+    position: fixed;
+    top: 5.7em;
+    right: 1em;
+    border: .5em solid #fff;
+}
+.icon img{
+    width: 50%;
+    height: auto;
+}
+.type{
+    text-align: start;
+    width: 90%;
+    margin: 10em auto auto auto;
+    border: none;
+    padding: 20px;
+    border-radius: .5em;
+    box-shadow: .2em .2em 0 rgba(0, 0, 0, .4), inset 0px 0px .5em #900;
+}
+.type h3{
+    text-align: center;
+    border-bottom: 2px solid;
+    width: 50%;
+    padding-bottom: .25em;
+    margin: 1em auto;
+    color: #00d
+    ;
+}
+.type ul{
+    list-style:none;
+    letter-spacing: .2em;
+    font-weight: 300;
+}
+.type input{
+    height: 3em;
+    width: 3em;
+    margin:2em 3em;
+    border:5px solid #000;
+    background: #999;
+}
+.taille{
+    width: 90%;
+    margin: 1em 0;
+    font-size: 1em;
+    padding: 1em 0;
+}
+.taille label {
+    font-weight: 250;
+    letter-spacing: .3em;
+    border-bottom: 2px dotted;
+    padding: .1em;
+}
+.taille input{
+    width: 60%;
+}
+.taille input + span + br + span{
+    border: none;
+    margin: 0;
+    display: inline-block;
+    padding: .3em;
+    font-size: 1.6em;
+    border-radius: 100%;
+    color: aliceblue;
+}
+.plus{
+    background: #55f;
+    padding: 0 .3em;
+    border-radius: .4em;
+    margin: auto .5em;
+    color: aliceblue;
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .5);
+}
+.moins{
+box-shadow: 0 0 .3em rgba(0, 0, 0, .5);
+background: #f55;
+padding: 0 .28em;
+border-radius: .4em;
+margin: auto .5em;
+color: aliceblue;
+}
+.plus:active{
+    border: 5px solid aqua;
+}
+.moins:active{
+border: 5px solid magenta;
+}
+
+
+/*Button généré */
+.btn-gen{
+    width: 80%;
+    margin: auto;
+    font-size: 2em;
+    padding: .5em;
+}
+.btn-gen button{
+    font-size: .7em;
+    padding: auto;
+    border-radius: .2em;
+    outline: ridge .2em #009 ;
+    font-weight: bolder;
+    background: linear-gradient(78deg, #aaa, aqua);
+    color: blue;
+}
+.display{
+    width: 95%;
+    margin: 1em auto;
+}
+.display div{
+    color:#00d;
+    overflow: scroll;
+    padding: .2em;
+    height: 2em;
+    align-content: center;
+    margin: .5em;
+    border-bottom: 2px solid;
+}
+.display div img{
+    position: absolute;
+    left: 1em;
+    width: 1em;
+    margin: auto;
+    border-radius: 50%;
+    background: aqua;
+    padding: .2em;
+}
+.display div span{
+    margin: 0 2em;
+}
+.display div span.copier{
+    position: absolute;
+    right: 0;
+    top: 80%;
+    padding: .5em;
+    background: #eee;
+    border-radius: .5em;
+    box-shadow: .2em .2em .1em #ccc;
+    font-weight: bolder;
+}

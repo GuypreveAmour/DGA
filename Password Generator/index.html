@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Password Generator</h1>
+  <div class="icon">
+    <img src="lock-white.png" alt="IMG" />
+  </div>
+  <div class="type">
+    <h3>PassWord Type</h3>
+    <ul>
+      <li>
+        <label for="nbr">
+          <input type="radio" name="type" id="nbr" value="nombre" /> <span>Nombres</span>
+        </label>
+        
+        </li>
+    <li>
+        <label for="ltr">
+          <input type="radio" name="type" id="ltr" value="lettre" /> <span>Lettres</span>
+        </label>
+      </li>
+    <li>
+      <label for="all">
+        <input type="radio" name="type" id="all" value="tout"/> <span>Complexe</span>
+      </label>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="taille">
+    <label for="len">Longueur</label><br>
+    <span class="moins">–</span>
+    <input type="range" name="len" id="len" min="4" max="50" value="8"><span class="plus">+</span><br />
+    <span id="len-disp">  </span>
+  </div>
+  <div class="btn-gen">
+    <button onclick="generate()">Generate</button>
+  </div>
+  <div class="display">
+    <div>
+      <img src="lock-black.png" alt="IMG" /><span class="pswd"></span>
+      <span class="copier">Copier</span>
+    </div>
+    <h5>Niveau de Sécurité</h5>
+    <p id="secure"></p>
+  </div>
+  <hr />
+  <footer>
+    <small>© Copyright 2025 Guypreve Amour DGA Tous droits réservés </small>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

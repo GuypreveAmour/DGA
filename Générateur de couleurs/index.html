@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Générateur de Couleurs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Colors Generator</h1>
+  <div class="system">
+    <h2>Coloration System</h2>
+    <ul>
+      <li>
+        <label for="rgb">
+          <input type="radio" name="system" id="rgb" value="rgb" />
+          <span>RGB (RVB)</span>
+        </label>
+        </li>
+          <li>
+        <label for="rgba">
+          <input type="radio" name="system" id="rgba" value="rgba"/>
+          <span>RGBA (RVBA)</span>
+        </label>
+        </li>
+          <li>
+    <label for="hexa">
+      <input type="radio" name="system" id="hexa" value="hexa"/>
+      <span>Hexadecimal</span>
+    </label>
+  </li>
+    <li>
+    <label for="hsl">
+      <input type="radio" name="system" id="hsl" value="hsl"/>
+      <span>HSL</span>
+    </label>
+  </li>
+    </ul>
+  </div>
+  <div class="code-disp">
+    <p>Code : <code contenteditable="" id="code"></code></p>
+  </div>
+  <div class="color-disp">
+    <p id="color">Color Display</p>
+  </div>
+  <div class="btn">
+    <button onclick="generate()">Generate</button>
+  </div>
+  
+  <div class="choix">
+    <label for="color-choix">
+      <span>
+        Choisir Une Couleur : 
+      </span>
+      <input type="color" name="color-choix" id="color-choix">
+      </label>
+  </div>
+  <hr />
+  <footer>
+    <small>© copyright <span>2025</span> Guypreve Amour DAMBA DGA tous droits réservés </small>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>
